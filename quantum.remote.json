@@ -1,0 +1,12 @@
+{
+    "$version": 1,
+    "enabled": true,
+    "name": "Quantum Components",
+    "environment": "development",
+    "paths": {
+        "components": "src/components",
+        "utils": "src/utils"
+    },
+    "components": {},
+    "utils": {}
+}
