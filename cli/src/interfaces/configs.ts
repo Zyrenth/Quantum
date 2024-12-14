@@ -17,8 +17,9 @@ export interface Config {
     /**
      * @description The remote repository and branch to pull components from.
      * @example "Zyrenth/Quantum@main"
-     * remote: `${string}/${string}@${string}`;
      * @example "<user|org>/<repo>@<branch>"
+     * @example "http://localhost:3000"
+     * @example "https://raw.githubusercontent.com/Zyrenth/Quantum/main"
      */
     remotes: RemoteUrl[];
 
