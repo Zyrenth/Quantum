@@ -187,13 +187,13 @@ const btn = cva(
  * @example <Button appearance="glossy">Click me</Button>
  */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-    { children, className, variant, appearance, size, rounding, disabled, type, ...props },
+    { children, className, variant, appearance, tone, size, rounding, disabled, type, ...props },
     ref,
 ) {
     const role = props.role || 'button';
     delete props.role;
 
-    const buttonClass = btn({ variant, appearance, size, rounding, disabled });
+    const buttonClass = btn({ variant, appearance, tone, size, rounding, disabled });
 
     return (
         <button
