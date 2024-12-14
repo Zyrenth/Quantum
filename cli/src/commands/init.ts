@@ -476,7 +476,7 @@ class Init {
             message: 'Select a suggested remote or add your own:\n\x1b[0m  \x1b[37m(Suggested remotes are not official or maintained by Zyrenth!)\x1b[0m\n ',
             choices: [
                 ...official.map((official) => {
-                    const isInvalid = official.name === null;
+                    const isInvalid = !official.name;
                     const isAdded = this.config?.remotes?.includes(official.url);
                     const isEnabled = official.enabled;
 
@@ -490,7 +490,7 @@ class Init {
                     };
                 }),
                 ...suggestions.map((suggestion) => {
-                    const isInvalid = suggestion.name === null;
+                    const isInvalid = !suggestion.name;
                     const isAdded = this.config?.remotes?.includes(suggestion.url);
                     const isEnabled = suggestion.enabled;
 
@@ -504,7 +504,7 @@ class Init {
                     };
                 }),
                 ...(error ? [{
-                    title: '\x1b[31m\x1b[1mSuggestions are unavailable at this moment.\x1b[0m',
+                    title: '\x1b[0m\x1b[31mSuggestions are unavailable at this moment.\x1b[0m',
                     value: -1,
                     disabled: true,
                 }] : []),

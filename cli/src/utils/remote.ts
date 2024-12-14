@@ -415,7 +415,7 @@ export class Remote {
 
         const config = await this.getConfig(remote, silent);
 
-        if (!config) {
+        if (!config || !Object.keys(config).length) {
             if (!silent) spinner.success({
                 text: 'Remote validation finished.',
             });
