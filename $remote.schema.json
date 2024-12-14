@@ -1,0 +1,72 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "$version": {
+            "type": "number",
+            "description": "The version of the configuration file. (Do not modify it manually.)"
+        },
+        "name": {
+            "type": "string",
+            "description": "The remote repository's name. Maximum 24 characters.",
+            "maxLength": 24
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "Whether this remote is enabled."
+        },
+        "environment": {
+            "type": "string",
+            "description": "The environment in which this remote is used.",
+            "enum": ["development", "production"]
+        },
+        "paths": {
+            "type": "object",
+            "description": "Paths configuration for various remote directories.",
+            "properties": {
+                "components": {
+                    "type": "string"
+                },
+                "utils": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": {
+                "type": "string"
+            },
+            "required": ["components", "utils"]
+        },
+        "components": {
+            "type": "object",
+            "description": "The components in the remote.",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "version": {
+                        "type": "string",
+                        "description": "The semantic version of the component.",
+                        "examples": ["1.0.0"]
+                    },
+                    "utils": {
+                        "type": "object",
+                        "description": "The utilities used in the component requiring a specific version.",
+                        "additionalProperties": {
+                            "type": "string",
+                            "description": "The utility version required by the component.",
+                            "examples": ["1.0.0"]
+                        }
+                    }
+                },
+                "required": ["version", "utils"]
+            }
+        },
+        "utils": {
+            "type": "object",
+            "description": "Semantic versioning of the utilities in this remote.",
+            "additionalProperties": {
+                "type": "string"
+            }
+        }
+    },
+    "required": ["$version", "name", "enabled", "environment", "paths", "components", "utils"]
+}

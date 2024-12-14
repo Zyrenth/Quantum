@@ -1,0 +1,133 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "description": "The schema of the configuration file."
+        },
+        "$version": {
+            "type": "number",
+            "description": "The version of the configuration file. (Do not modify it manually.)"
+        },
+        "remotes": {
+            "type": "array",
+            "description": "The remote repository and branch to pull components from.",
+            "items": {
+                "type": "string",
+                "pattern": "^(http://|https://|/)?[\\w\\-]+(/[\\w\\-]+)?(@[\\w\\-]+)?$"
+            }
+        },
+        "format": {
+            "type": "string",
+            "description": "The file format of the components.",
+            "enum": ["tsx", "jsx"]
+        },
+        "server_components": {
+            "type": "boolean",
+            "description": "Whether to use server-side components."
+        },
+        "tailwind_config": {
+            "type": "string",
+            "description": "The path to the Tailwind CSS configuration file."
+        },
+        "palette": {
+            "type": "object",
+            "description": "The color palette for the components.",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "pattern": "^#[0-9a-fA-F]{6}$"
+                    },
+                    "tag": {
+                        "type": "string"
+                    }
+                },
+                "required": ["value"]
+            }
+        },
+        "backgrounds": {
+            "type": "object",
+            "description": "The main background colors of your app.",
+            "additionalProperties": {
+                "type": "string",
+                "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+        },
+        "paths": {
+            "type": "object",
+            "description": "The paths to the components and utilities. (Make sure to configure it in tsconfig.json or jsconfig.json as well.)",
+            "properties": {
+                "components": {
+                    "type": "string"
+                },
+                "utils": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": {
+                "type": "string"
+            },
+            "required": ["components", "utils"]
+        },
+        "components": {
+            "type": "object",
+            "description": "The installed components in the project. (Used for tracking and updating. Do not modify it manually.)",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "remote": {
+                        "type": "string",
+                        "pattern": "^(http://|https://|/)?[\\w\\-]+(/[\\w\\-]+)?(@[\\w\\-]+)?$"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "hash": {
+                        "type": "string"
+                    }
+                },
+                "required": ["remote", "id", "version", "hash"]
+            }
+        },
+        "utils": {
+            "type": "object",
+            "description": "The installed utilities in the project. (Used for tracking and updating. Do not modify it manually.)",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "remote": {
+                        "type": "string",
+                        "pattern": "^(http://|https://|/)?[\\w\\-]+(/[\\w\\-]+)?(@[\\w\\-]+)?$"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "hash": {
+                        "type": "string"
+                    }
+                },
+                "required": ["remote", "id", "version", "hash"]
+            }
+        }
+    },
+    "required": [
+        "$schema",
+        "$version",
+        "remotes",
+        "format",
+        "server_components",
+        "tailwind_config",
+        "palette",
+        "backgrounds",
+        "paths"
+    ]
+}
