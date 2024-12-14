@@ -1,0 +1,28 @@
+{
+    "name": "Quantum CLI",
+
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "nodeGypDependencies": true,
+            "installYarnUsingApt": true,
+            "version": "lts",
+            "pnpmVersion": "latest",
+            "nvmVersion": "latest"
+        }
+    },
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "EditorConfig.EditorConfig",
+                "dbaeumer.vscode-eslint",
+                "ms-edgedevtools.vscode-edge-devtools",
+                "esbenp.prettier-vscode"
+            ]
+        }
+    },
+
+    "postCreateCommand": "pnpm install"
+}

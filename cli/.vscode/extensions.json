@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "EditorConfig.EditorConfig",
+        "dbaeumer.vscode-eslint",
+        "ms-edgedevtools.vscode-edge-devtools",
+        "esbenp.prettier-vscode"
+    ]
+}

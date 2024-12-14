@@ -1,0 +1,60 @@
+{
+    "name": "quantum-cli",
+    "version": "1.0.0",
+    "keywords": [
+        "quantum-cli",
+        "web-components",
+        "cli",
+        "components",
+        "web"
+    ],
+    "author": "Zyrenth <work@zyrenth.dev>",
+    "license": "MIT",
+    "description": "CLI for managing Quantum Web Components in your project.",
+    "main": "dist/index.js",
+    "type": "module",
+    "scripts": {
+        "lint": "tsc",
+        "build": "node scripts/build.js",
+        "start": "node dist/index.js",
+        "prod": "node scripts/run.js --sync cleanup lint build start",
+        "dev:lint": "tsc --watch --preserveWatchOutput",
+        "dev:start": "node --watch dist/index.js",
+        "dev:build": "node scripts/build.js --watch",
+        "dev:pre": "node scripts/run.js --sync cleanup lint build",
+        "dev:scripts": "node scripts/run.js dev:lint dev:start dev:build",
+        "dev": "node scripts/run.js --sync dev:pre dev:scripts",
+        "cleanup": "node scripts/cleanup.js dist",
+        "prepare": "husky"
+    },
+    "devDependencies": {
+        "@types/color": "^4.2.0",
+        "@types/node": "^20.10.6",
+        "@types/prompts": "^2.4.9",
+        "@types/semver": "^7.5.8",
+        "@types/validate-npm-package-name": "^4.0.2",
+        "@typescript-eslint/eslint-plugin": "^6.16.0",
+        "esbuild": "^0.23.1",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.1.2",
+        "eslint-plugin-simple-import-sort": "^10.0.0",
+        "eslint-plugin-unused-imports": "^3.0.0",
+        "husky": "^9.1.5"
+    },
+    "dependencies": {
+        "color": "^4.2.3",
+        "commander": "^12.1.0",
+        "detect-package-manager": "^3.0.2",
+        "execa": "^9.5.2",
+        "json-colorizer": "^3.0.1",
+        "nanospinner": "^1.2.2",
+        "prettier": "^3.4.2",
+        "prompts": "^2.4.2",
+        "semver": "^7.6.3",
+        "ts-morph": "^24.0.0",
+        "tsconfig-paths": "^4.2.0",
+        "typescript": "^5.7.2",
+        "validate-npm-package-name": "^6.0.0",
+        "wcag-color": "^1.1.1"
+    }
+}
