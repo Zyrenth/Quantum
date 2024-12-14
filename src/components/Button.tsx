@@ -48,6 +48,14 @@ const btn = cva(
                 glossy: '',
             },
             /**
+             * @description The tone of the button.
+             * @default 'solid'
+             */
+            tone: {
+                solid: '',
+                soft: '',
+            },
+            /**
              * @description The size of the button.
              * @default 'md'
              */
@@ -80,9 +88,31 @@ const btn = cva(
         compoundVariants: [
             {
                 variant: 'primary',
+                appearance: 'normal',
+                tone: 'solid',
+                className:
+                    'bg-black text-white dark:bg-white dark:text-black hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-black/20 dark:focus:ring-white/20',
+            },
+            {
+                variant: 'primary',
                 appearance: 'glossy',
+                tone: 'solid',
                 className:
                     'bg-gradient-to-b from-black/75 to-black/100 dark:from-white/100 dark:to-white/75 !bg-transparent',
+            },
+            {
+                variant: 'primary',
+                appearance: 'normal',
+                tone: 'soft',
+                className:
+                    'bg-black/30 text-black dark:bg-white/20 dark:text-white hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-black/20 dark:focus:ring-white/20',
+            },
+            {
+                variant: 'primary',
+                appearance: 'glossy',
+                tone: 'soft',
+                className:
+                    'bg-gradient-to-b from-black/20 to-black/50 dark:from-white/20 dark:to-white/10 !bg-transparent text-black dark:text-white',
             },
             {
                 variant: 'secondary',
@@ -105,15 +135,44 @@ const btn = cva(
             /* <<
             {
                 variant: '{{color}}',
+                appearance: 'normal',
+                tone: 'soft',
+                className:
+                    'bg-{{color}}-soft-light-bg/30 text-{{color}}-soft-light-text dark:bg-{{color}}-soft-dark-bg/20 dark:text-{{color}}-soft-dark-text hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-{{color}}-soft-dark/20 dark:focus:ring-{{color}}-soft-light/10',
+            },
+            >> */
+            /* <<
+            {
+                variant: '{{color}}',
                 appearance: 'glossy',
+                tone: 'soft',
                 className:
                     'bg-gradient-to-b from-{{color}}-soft-light-bg/20 to-{{color}}-soft-light-bg/50 dark:from-{{color}}-soft-dark-bg/20 dark:to-{{color}}-soft-dark-bg/10 !bg-transparent',
+            },
+            >> */
+            /* <<
+            {
+                variant: '{{color}}',
+                appearance: 'normal',
+                tone: 'solid',
+                className:
+                    'bg-{{color}}-solid-light-bg text-{{color}}-solid-light-text dark:bg-{{color}}-solid-dark-bg dark:text-{{color}}-solid-dark-text hover:enabled:opacity-75 active:enabled:opacity-100',
+            },
+            >> */
+            /* <<
+            {
+                variant: '{{color}}',
+                appearance: 'glossy',
+                tone: 'solid',
+                className:
+                    'bg-gradient-to-b from-{{color}}-solid-light-bg/75 to-{{color}}-solid-light-bg/100 dark:from-{{color}}-solid-dark-bg/100 dark:to-{{color}}-solid-dark-bg/75 !bg-transparent',
             },
             >> */
         ],
         defaultVariants: {
             variant: 'primary',
             appearance: 'normal',
+            tone: 'solid',
             size: 'md',
             rounding: 'md',
             disabled: false,
