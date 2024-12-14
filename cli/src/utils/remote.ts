@@ -272,7 +272,12 @@ export class Remote {
 
                 componentData = readFileSync(remoteUrl, 'utf-8');
             } else if (type === 'url') {
-                const [fetchedComponent, fetchError] = await trycatch(() => fetch(remoteUrl));
+                const [fetchedComponent, fetchError] = await trycatch(() => fetch(remoteUrl, {
+                    headers: {
+                        'User-Agent': `quantum-cli/v${process.packageVersion}/${process.platform}`,
+                        ...(CLI.getHeaders(remote)),
+                    },
+                }));
 
                 if (fetchError) {
                     if (!silent) spinner.error({
@@ -283,9 +288,19 @@ export class Remote {
                 }
 
                 if (!fetchedComponent.ok) {
-                    if (!silent) spinner.error({
-                        text: `Failed to validate remote. Please make sure the remote is a valid Quantum repository. (Error: ${fetchedComponent.status})`,
-                    });
+                    if (fetchedComponent.status === 404) {
+                        if (!silent) spinner.error({
+                            text: `Failed to validate remote. The remote does not exist. (Error: ${fetchedComponent.status})`,
+                        });
+                    } else if (fetchedComponent.status === 401) {
+                        if (!silent) spinner.error({
+                            text: `Failed to authenticate with the remote. Do you have the correct headers set up? (Error: ${fetchedComponent.status})`,
+                        });
+                    } else {
+                        if (!silent) spinner.error({
+                            text: `Failed to validate remote. Please make sure the remote is a valid Quantum repository. (Error: ${fetchedComponent.status})`,
+                        });
+                    }
 
                     return null;
                 }
@@ -361,7 +376,12 @@ export class Remote {
 
                 utilData = readFileSync(remoteUrl, 'utf-8');
             } else if (type === 'url') {
-                const [fetchedUtil, fetchError] = await trycatch(() => fetch(remoteUrl));
+                const [fetchedUtil, fetchError] = await trycatch(() => fetch(remoteUrl, {
+                    headers: {
+                        'User-Agent': `quantum-cli/v${process.packageVersion}/${process.platform}`,
+                        ...(CLI.getHeaders(remote)),
+                    },
+                }));
 
                 if (fetchError) {
                     if (!silent) spinner.error({
@@ -372,9 +392,19 @@ export class Remote {
                 }
 
                 if (!fetchedUtil.ok) {
-                    if (!silent) spinner.error({
-                        text: `Failed to validate remote. Please make sure the remote is a valid Quantum repository. (Error: ${fetchedUtil.status})`,
-                    });
+                    if (fetchedUtil.status === 404) {
+                        if (!silent) spinner.error({
+                            text: `Failed to validate remote. The remote does not exist. (Error: ${fetchedUtil.status})`,
+                        });
+                    } else if (fetchedUtil.status === 401) {
+                        if (!silent) spinner.error({
+                            text: `Failed to authenticate with the remote. Do you have the correct headers set up? (Error: ${fetchedUtil.status})`,
+                        });
+                    } else {
+                        if (!silent) spinner.error({
+                            text: `Failed to validate remote. Please make sure the remote is a valid Quantum repository. (Error: ${fetchedUtil.status})`,
+                        });
+                    }
 
                     return null;
                 }
