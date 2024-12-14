@@ -165,7 +165,7 @@ const btn = cva(
                 appearance: 'glossy',
                 tone: 'solid',
                 className:
-                    'bg-gradient-to-b from-{{color}}-solid-light-bg/75 to-{{color}}-solid-light-bg/100 dark:from-{{color}}-solid-dark-bg/100 dark:to-{{color}}-solid-dark-bg/75 !bg-transparent',
+                    'bg-gradient-to-b from-{{color}}-solid-light-bg/75 to-{{color}}-solid-light-bg/100 text-{{color}}-solid-light-text dark:from-{{color}}-solid-dark-bg/100 dark:to-{{color}}-solid-dark-bg/75 dark:text-{{color}}-solid-dark-text !bg-transparent',
             },
             >> */
         ],
