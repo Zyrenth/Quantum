@@ -33,8 +33,7 @@ export enum ValidationResult {
 
 export default class Project {
     public static readonly defaultConfig: Config = {
-        // TODO: Modify this.
-        $schema: '...',
+        $schema: 'https://raw.githubusercontent.com/Zyrenth/Quantum/refs/heads/main/config.schema.json',
         $version: 1,
         remotes: [
             'Zyrenth/Quantum@main',

@@ -20,7 +20,7 @@ export const convertToJs = (code: string, jsx: boolean) => {
     const sourceFile = project.createSourceFile('file.tsx', fixedCode);
 
     const jsCode = sourceFile?.getEmitOutput()?.getOutputFiles()?.[0]?.getText();
-    return jsCode?.split('\n').map((line) => line === `/** ${commentCode} **/` ? '' : line).join('\n') ?? code;
+    return jsCode?.split('\n').map((line: string) => line === `/** ${commentCode} **/` ? '' : line).join('\n') ?? code;
 };
 
 export const format = async (code: string, ts?: boolean) => {

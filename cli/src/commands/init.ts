@@ -13,6 +13,7 @@ import { installPackages } from '../utils/packages.js';
 import Project from '../utils/project.js';
 import { Remote } from '../utils/remote.js';
 import { Tailwind } from '../utils/tailwind.js';
+import { trycatch } from '../utils/trycatch.js';
 
 type SetupJson = Omit<Config, '$schema' | '$version' | 'components' | 'utils'>;
 
@@ -450,8 +451,9 @@ class Init {
                 };
             }));
 
-        // TODO: Later fetch this list from the official Quantum github repository
-        const suggestions = await Promise.all(['Zyrenth/qcli-test@main']
+        const [suggestionsArray, error] = await trycatch(async () => await (await fetch('https://raw.githubusercontent.com/Zyrenth/Quantum/refs/heads/main/remote-suggestions.json')).json());
+
+        const suggestions = await Promise.all((suggestionsArray as string[] ?? [])
             .map(async url => {
                 const remoteConfig = await this.remote.getRemoteConfig(url, false, !this.debug);
 
@@ -501,6 +503,11 @@ class Init {
                         disabled: isInvalid || isAdded || !isEnabled,
                     };
                 }),
+                ...(error ? [{
+                    title: '\x1b[31m\x1b[1mSuggestions are unavailable at this moment.\x1b[0m',
+                    value: -1,
+                    disabled: true,
+                }] : []),
                 {
                     title: '\x1b[32m\x1b[1mAdd custom remote\x1b[0m',
                     value: 1,
@@ -528,7 +535,7 @@ class Init {
                 type: 'text',
                 name: 'value',
                 message: `Enter the url of the remote:\n\x1b[0m  \x1b[37mExamples:\n  - ${examples.join('\n  - ')}\x1b[0m\n`,
-                validate: async (value) => {
+                validate: async (value: string) => {
                     if (!value) {
                         return 'Please enter a valid remote url.';
                     }
@@ -646,7 +653,7 @@ class Init {
             name: 'value',
             message: 'Enter the path to the Tailwind CSS configuration file:',
             initial: existsSync('tsconfig.json') && !statSync('tsconfig.json').isDirectory() ? 'tailwind.config.ts' : 'tailwind.config.js',
-            validate: (value) => {
+            validate: (value: string) => {
                 if (!existsSync(value) || statSync(value).isDirectory()) {
                     return 'Tailwind CSS configuration does not exist or is a directory.';
                 }
@@ -669,7 +676,7 @@ class Init {
                 name: 'light',
                 message: 'Enter the light theme background color of your app:',
                 initial: '#FFFFFF',
-                validate: (value) => {
+                validate: (value: string) => {
                     if (!value.match(/^#[0-9A-F]{6}$/i)) {
                         return 'Please enter a valid hex color.';
                     }
@@ -682,7 +689,7 @@ class Init {
                 name: 'dark',
                 message: 'Enter the dark theme background color of your app:',
                 initial: '#000000',
-                validate: (value) => {
+                validate: (value: string) => {
                     if (!value.match(/^#[0-9A-F]{6}$/i)) {
                         return 'Please enter a valid hex color.';
                     }
@@ -744,7 +751,7 @@ class Init {
                 type: 'text',
                 name: 'value',
                 message: 'Enter the a tag for the color:\n\x1b[0m  \x1b[37m(Leave empty for no tag.)\x1b[0m\n ',
-                validate: (value) => {
+                validate: (value: string) => {
                     if (Object.values(this.palette).some((color) => color.tag === value)) {
                         return 'This tag is already in use.';
                     }
@@ -761,7 +768,7 @@ class Init {
                 type: 'text',
                 name: 'value',
                 message: 'Enter the hex color you want to add:',
-                validate: (value) => {
+                validate: (value: string) => {
                     if (!value.match(/^#[0-9A-F]{6}$/i)) {
                         return 'Please enter a valid hex color.';
                     }
@@ -796,7 +803,7 @@ class Init {
                 name: 'components',
                 message: 'Enter the path alias for components:\n\x1b[0m  \x1b[37m(Configured in your tsconfig.json or jsconfig.json.)\x1b[0m\n ',
                 initial: '@/components',
-                validate: (value) => {
+                validate: (value: string) => {
                     if (!resolvePath(value)) {
                         return 'This path alias is unresolvable. Please configure it first.';
                     } else if (existsSync(resolvePath(value) as string) && !statSync(resolvePath(value) as string).isDirectory()) {
@@ -811,7 +818,7 @@ class Init {
                 name: 'utils',
                 message: 'Enter the path alias for utils:\n\x1b[0m  \x1b[37m(Configured in your tsconfig.json or jsconfig.json.)\x1b[0m\n ',
                 initial: '@/utils',
-                validate: (value) => {
+                validate: (value: string) => {
                     if (!resolvePath(value)) {
                         return 'This path alias is unresolvable. Please configure it first.';
                     } else if (existsSync(resolvePath(value) as string) && !statSync(resolvePath(value) as string).isDirectory()) {

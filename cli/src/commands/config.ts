@@ -268,7 +268,7 @@ class Config {
                 type: 'text',
                 name: 'value',
                 message: 'Enter the remote URL:',
-                validate: (value) => {
+                validate: (value: string) => {
                     const remoteUrl = Remote.formatRemoteUrl(value, 'quantum.remote.json');
 
                     if (remoteUrl.remote === null || remoteUrl.type === 'local') {

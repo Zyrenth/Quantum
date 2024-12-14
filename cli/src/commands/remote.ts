@@ -8,6 +8,7 @@ import { Config } from '../interfaces/configs.js';
 import { fail, info, item } from '../utils/log.js';
 import Project, { ValidationResult } from '../utils/project.js';
 import { Remote as URemote } from '../utils/remote.js';
+import { trycatch } from '../utils/trycatch.js';
 
 class Remote {
     private project: Project;
@@ -332,8 +333,9 @@ class Remote {
                 };
             }));
 
-        // TODO: Later fetch this list from the official Quantum github repository
-        const suggestions = await Promise.all(['Zyrenth/qcli-test@main']
+        const [suggestionsArray, error] = await trycatch(async () => await (await fetch('https://raw.githubusercontent.com/Zyrenth/Quantum/refs/heads/main/remote-suggestions.json')).json());
+
+        const suggestions = await Promise.all((suggestionsArray as string[] ?? [])
             .map(async url => {
                 const remoteConfig = await this.remote?.getRemoteConfig(url, false, !this.debug);
 
@@ -383,6 +385,11 @@ class Remote {
                         disabled: isInvalid || isAdded || !isEnabled,
                     };
                 }),
+                ...(error ? [{
+                    title: '\x1b[31m\x1b[1mSuggestions are unavailable at this moment.\x1b[0m',
+                    value: -1,
+                    disabled: true,
+                }] : []),
                 {
                     title: '\x1b[32m\x1b[1mAdd custom remote\x1b[0m',
                     value: 1,
@@ -406,7 +413,7 @@ class Remote {
                 type: 'text',
                 name: 'value',
                 message: `Enter the url of the remote:\n\x1b[0m  \x1b[37mExamples:\n  - ${examples.join('\n  - ')}\x1b[0m\n`,
-                validate: async (value) => {
+                validate: async (value: string) => {
                     if (!value) {
                         return 'Please enter a valid remote url.';
                     }
