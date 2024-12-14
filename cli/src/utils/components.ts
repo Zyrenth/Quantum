@@ -1857,6 +1857,7 @@ export class Components {
         }
 
         formatted = this.generateColorStyles(Object.keys(this.config.palette), formatted);
+        formatted = await format(formatted, this.config.format === 'tsx');
 
         return {
             content: formatted,
