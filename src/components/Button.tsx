@@ -36,7 +36,7 @@ const btn = cva(
                 link: 'text-black dark:text-white underline hover:enabled:opacity-75 active:enabled:opacity-100',
                 blank: 'text-black dark:text-white hover:enabled:bg-black/10 dark:hover:enabled:bg-white/10 active:enabled:bg-transparent dark:active:enabled:bg-transparent',
                 /* <<
-                '{{color}}': 'bg-{{color}}-soft-light-bg/30 text-{{color}}-soft-light-text dark:bg-{{color}}-soft-dark-bg/20 dark:text-{{color}}-soft-dark-text hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-{{color}}-soft-dark/20 dark:focus:ring-{{color}}-soft-light/10',
+                '{{color}}': 'bg-{{color}}-soft-light-bg/30 text-{{color}}-soft-light-text dark:bg-{{color}}-soft-dark-bg/20 dark:text-{{color}}-soft-dark-text hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-{{color}}-soft-dark-bg/20 dark:focus:ring-{{color}}-soft-light-bg/10',
                 >> */
             },
             /**
@@ -138,7 +138,7 @@ const btn = cva(
                 appearance: 'normal',
                 tone: 'soft',
                 className:
-                    'bg-{{color}}-soft-light-bg/30 text-{{color}}-soft-light-text dark:bg-{{color}}-soft-dark-bg/20 dark:text-{{color}}-soft-dark-text hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-{{color}}-soft-dark/20 dark:focus:ring-{{color}}-soft-light/10',
+                    'bg-{{color}}-soft-light-bg/30 text-{{color}}-soft-light-text dark:bg-{{color}}-soft-dark-bg/20 dark:text-{{color}}-soft-dark-text hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-{{color}}-soft-dark-bg/20 dark:focus:ring-{{color}}-soft-light-bg/10',
             },
             >> */
             /* <<
