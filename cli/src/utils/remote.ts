@@ -55,7 +55,7 @@ export class Remote {
 
         const config = this.remotes[remote]?.getFile(['quantum.remote.json']) ?? '{}';
 
-        if (!config) {
+        if (!config || config === '{}') {
             const remoteConfig = await this.fetchConfig(remote, silent) as RemoteConfig;
 
             if (!remoteConfig) {
