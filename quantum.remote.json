@@ -139,6 +139,12 @@
             "utils": {
                 "class": "0.0.1"
             }
+        },
+        "TextField": {
+            "version": "0.0.1",
+            "utils": {
+                "class": "0.0.1"
+            }
         }
     },
     "utils": {
