@@ -1832,8 +1832,8 @@ export class Components {
         [key: string]: string;
     }): string {
         for (const [name, localName] of Object.entries(replacements)) {
-            code = code.replace(new RegExp(`import\\s+(.*?)\\s+from\\s+(['"])${importAlias}\\/(.*)\\2`, 'g'), (match, imports, quote, p1) => {
-                return `import ${imports} from ${quote}${importAlias}/${p1 === name ? localName : name}${quote}`;
+            code = code.replace(new RegExp(`import\\s+(.*?)\\s+from\\s+(['"])${importAlias}\\/(.*)\\2`, 'gs'), (match, imports, quote, p1) => {
+                return `import ${imports} from ${quote}${importAlias}/${p1 === name ? localName : p1}${quote}`;
             });
         }
 
@@ -1851,7 +1851,7 @@ export class Components {
         formatted = formatted.join('\n');
 
         for (const path in this.config.paths) {
-            formatted = formatted.replace(new RegExp(`import\\s+(.*?)\\s+from\\s+(['"])<{${path}}>\\/(.*)\\2`, 'g'), (match, imports, quote, p1) => {
+            formatted = formatted.replace(new RegExp(`import\\s+(.*?)\\s+from\\s+(['"])<{${path}}>\\/(.*)\\2`, 'gs'), (match, imports, quote, p1) => {
                 return `import ${imports} from ${quote}${this.config.paths[path]}/${p1}${quote}`;
             });
         }
