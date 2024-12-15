@@ -151,6 +151,12 @@
             "utils": {
                 "class": "0.0.1"
             }
+        },
+        "Typography": {
+            "version": "0.0.1",
+            "utils": {
+                "class": "0.0.1"
+            }
         }
     },
     "utils": {
