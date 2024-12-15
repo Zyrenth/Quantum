@@ -18,7 +18,7 @@ const btn = cva(
     [
         'inline-flex items-center justify-center gap-2.5 rounded-md transition-all ease-out duration-[150ms]',
         'text-center font-medium leading-[normal] overflow-hidden whitespace-nowrap text-ellipsis',
-        'outline-none focus:ring-4 focus:ring-black/20 dark:focus:ring-white/20',
+        'outline-none focus:ring-4 focus:ring-black/40 dark:focus:ring-white/30',
     ],
     {
         variants: {
@@ -91,28 +91,28 @@ const btn = cva(
                 appearance: 'normal',
                 tone: 'solid',
                 className:
-                    'bg-black text-white dark:bg-white dark:text-black hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-black/20 dark:focus:ring-white/20',
+                    'bg-black text-white dark:bg-white dark:text-black hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-black/40 dark:focus:ring-white/25',
             },
             {
                 variant: 'primary',
                 appearance: 'glossy',
                 tone: 'solid',
                 className:
-                    'bg-gradient-to-b from-black/75 to-black/100 dark:from-white/100 dark:to-white/75 !bg-transparent',
+                    'bg-gradient-to-b from-black/75 to-black/100 dark:from-white/100 dark:to-white/75 !bg-transparent focus:ring-black/40 dark:focus:ring-white/25',
             },
             {
                 variant: 'primary',
                 appearance: 'normal',
                 tone: 'soft',
                 className:
-                    'bg-black/30 text-black dark:bg-white/20 dark:text-white hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-black/20 dark:focus:ring-white/20',
+                    'bg-black/30 text-black dark:bg-white/20 dark:text-white hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-black/40 dark:focus:ring-white/30',
             },
             {
                 variant: 'primary',
                 appearance: 'glossy',
                 tone: 'soft',
                 className:
-                    'bg-gradient-to-b from-black/20 to-black/50 dark:from-white/20 dark:to-white/10 !bg-transparent text-black dark:text-white',
+                    'bg-gradient-to-b from-black/20 to-black/50 dark:from-white/20 dark:to-white/10 !bg-transparent text-black dark:text-white focus:ring-black/40 dark:focus:ring-white/30',
             },
             {
                 variant: 'secondary',
@@ -138,7 +138,7 @@ const btn = cva(
                 appearance: 'normal',
                 tone: 'soft',
                 className:
-                    'bg-{{color}}-soft-light-bg/30 text-{{color}}-soft-light-text dark:bg-{{color}}-soft-dark-bg/20 dark:text-{{color}}-soft-dark-text hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-{{color}}-soft-dark-bg/40 dark:focus:ring-{{color}}-soft-light-bg/25',
+                    'bg-{{color}}-soft-light-bg/30 text-{{color}}-soft-light-text dark:bg-{{color}}-soft-dark-bg/20 dark:text-{{color}}-soft-dark-text hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-{{color}}-soft-dark-bg/40 dark:focus:ring-{{color}}-soft-light-bg/30',
             },
             >> */
             /* <<
@@ -147,7 +147,7 @@ const btn = cva(
                 appearance: 'glossy',
                 tone: 'soft',
                 className:
-                    'bg-gradient-to-b from-{{color}}-soft-light-bg/20 to-{{color}}-soft-light-bg/50 dark:from-{{color}}-soft-dark-bg/20 dark:to-{{color}}-soft-dark-bg/10 !bg-transparent',
+                    'bg-gradient-to-b from-{{color}}-soft-light-bg/20 to-{{color}}-soft-light-bg/50 dark:from-{{color}}-soft-dark-bg/20 dark:to-{{color}}-soft-dark-bg/10 !bg-transparent focus:ring-{{color}}-soft-dark-bg/40 dark:focus:ring-{{color}}-soft-light-bg/30',
             },
             >> */
             /* <<
@@ -156,7 +156,7 @@ const btn = cva(
                 appearance: 'normal',
                 tone: 'solid',
                 className:
-                    'bg-{{color}}-solid-light-bg text-{{color}}-solid-light-text dark:bg-{{color}}-solid-dark-bg dark:text-{{color}}-solid-dark-text hover:enabled:opacity-75 active:enabled:opacity-100',
+                    'bg-{{color}}-solid-light-bg text-{{color}}-solid-light-text dark:bg-{{color}}-solid-dark-bg dark:text-{{color}}-solid-dark-text hover:enabled:opacity-75 active:enabled:opacity-100 focus:ring-{{color}}-soft-dark-bg/40 dark:focus:ring-{{color}}-soft-light-bg/25',
             },
             >> */
             /* <<
@@ -165,7 +165,7 @@ const btn = cva(
                 appearance: 'glossy',
                 tone: 'solid',
                 className:
-                    'bg-gradient-to-b from-{{color}}-solid-light-bg/75 to-{{color}}-solid-light-bg/100 text-{{color}}-solid-light-text dark:from-{{color}}-solid-dark-bg/100 dark:to-{{color}}-solid-dark-bg/75 dark:text-{{color}}-solid-dark-text !bg-transparent',
+                    'bg-gradient-to-b from-{{color}}-solid-light-bg/75 to-{{color}}-solid-light-bg/100 text-{{color}}-solid-light-text dark:from-{{color}}-solid-dark-bg/100 dark:to-{{color}}-solid-dark-bg/75 dark:text-{{color}}-solid-dark-text !bg-transparent focus:ring-{{color}}-soft-dark-bg/40 dark:focus:ring-{{color}}-soft-light-bg/25',
             },
             >> */
         ],
