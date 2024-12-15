@@ -145,6 +145,12 @@
             "utils": {
                 "class": "0.0.1"
             }
+        },
+        "TextInput": {
+            "version": "0.0.1",
+            "utils": {
+                "class": "0.0.1"
+            }
         }
     },
     "utils": {
