@@ -1417,6 +1417,11 @@ export class Components {
                 text: `An error occurred while processing component ${id}. Skipping component...`,
             });
 
+            if (error?.cause?.code === 'BABEL_PARSER_SYNTAX_ERROR' && error?.codeFrame) {
+                item('Syntax error in component, please contact the remote maintainer for more information.');
+                item(String(error));
+            }
+
             return;
         }
 
@@ -1789,6 +1794,11 @@ export class Components {
             failTask({
                 text: `An error occurred while processing util ${id}. Skipping util...`,
             });
+
+            if (error?.cause?.code === 'BABEL_PARSER_SYNTAX_ERROR' && error?.codeFrame) {
+                item('Syntax error in component, please contact the remote maintainer for more information.');
+                item(String(error));
+            }
 
             return;
         }
