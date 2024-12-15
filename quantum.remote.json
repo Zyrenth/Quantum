@@ -39,6 +39,12 @@
             "utils": {
                 "class": "0.0.1"
             }
+        },
+        "ButtonGroup": {
+            "version": "0.0.1",
+            "utils": {
+                "class": "0.0.1"
+            }
         }
     },
     "utils": {
