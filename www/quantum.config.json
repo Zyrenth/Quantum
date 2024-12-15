@@ -1,0 +1,178 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Zyrenth/Quantum/refs/heads/main/config.schema.json",
+    "$version": 1,
+    "remotes": [
+        "Zyrenth/Quantum@main"
+    ],
+    "format": "tsx",
+    "server_components": true,
+    "tailwind_config": "tailwind.config.ts",
+    "palette": {
+        "success": {
+            "value": "#83FA9D",
+            "tag": "success"
+        },
+        "warning": {
+            "value": "#FAE083",
+            "tag": "warning"
+        },
+        "danger": {
+            "value": "#FA8383",
+            "tag": "danger"
+        },
+        "info": {
+            "value": "#83D6FA",
+            "tag": "info"
+        }
+    },
+    "backgrounds": {
+        "light": "#FFFFFF",
+        "dark": "#000000"
+    },
+    "paths": {
+        "components": "@/components",
+        "utils": "@/utils"
+    },
+    "components": {
+        "Button": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Button",
+            "version": "0.0.1",
+            "hash": "6d0c8df4019516e841c9416767b560d899d1f6684d1ace58309fafba44169295"
+        },
+        "Typography": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Typography",
+            "version": "0.0.1",
+            "hash": "48f5b2e9a3ffb9a11e7834c7c04274d3449de79e4a7e8064075a71f99b28ed51"
+        },
+        "Badge": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Badge",
+            "version": "0.0.1",
+            "hash": "2fe7a09b0c14a66d9a2aa5db89d7d1da0be9af26aec31766a67b09b6ea689d37"
+        },
+        "Avatar": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Avatar",
+            "version": "0.0.1",
+            "hash": "43dedf5e65089698ebf69149bdb5b60a0cbbb9af8aff8daf86b1cd275213fd5c"
+        },
+        "KBD": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "KBD",
+            "version": "0.0.1",
+            "hash": "8e6d8da90a9601834a6e7ac851ecf5e311c7b5f2f187907af463be15f7894bef"
+        },
+        "Popout": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Popout",
+            "version": "0.0.1",
+            "hash": "45399ca5deae4fe364ec9f56646651bedf94b1cda5f7a4eb9924ecaa48c1ac72"
+        },
+        "Select": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Select",
+            "version": "0.0.1",
+            "hash": "6025a64253de61dbd34f3145fedb257a507c3cc8ed426bc126d0c5fbcb45536e"
+        },
+        "Dropdown": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Dropdown",
+            "version": "0.0.1",
+            "hash": "1b13eb092cb5feab529369fa6687b322d77e2df7c473cbd4aab706f1f0305454"
+        },
+        "TextInput": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "TextInput",
+            "version": "0.0.1",
+            "hash": "374a8f5969020205af994bf2f3b7bf13f7e4be02b8a87205c4269c4a7a6acf16"
+        },
+        "Slider": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Slider",
+            "version": "0.0.1",
+            "hash": "69ea93b124213e90f21d4603f1e1c6beea7d296ea6aa02a7c4f9f6bccc954676"
+        },
+        "Spinner": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Spinner",
+            "version": "0.0.1",
+            "hash": "f034b6417b3a3f01a6db1d9116c8ce50e75d675204297147518843ee62bc1dda"
+        },
+        "Switch": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Switch",
+            "version": "0.0.1",
+            "hash": "a486d2a4e4b0a338836fbc9604853e3f95ca6137171b212b3c0e3c9fd38ac617"
+        },
+        "Tab": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Tab",
+            "version": "0.0.1",
+            "hash": "f6b4c3e39326855951bccc7c523aec1f8d806d558b224604acbff0c79b114e32"
+        },
+        "Toggle": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Toggle",
+            "version": "0.0.1",
+            "hash": "96e62454aa783b06fba8317959a2ce99539e1165135ef85206db553edc10c99c"
+        },
+        "Checkbox": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Checkbox",
+            "version": "0.0.1",
+            "hash": "4c22e65114712dd10f81c4a271a000e329881b0a869bd669a8ffe432cff18b7e"
+        },
+        "Radio": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Radio",
+            "version": "0.0.1",
+            "hash": "ebfccdd0726be79e442c3aa17c041d513c8477fbeb6c98e51a286dcce0bc275b"
+        },
+        "AvatarGroup": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "AvatarGroup",
+            "version": "0.0.1",
+            "hash": "6b6a0ceca6ea4981f983c8032ae8be50c97f8a149b265bc0f57949777927b6f8"
+        },
+        "Breadcrumb": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Breadcrumb",
+            "version": "0.0.1",
+            "hash": "b5244ab5b7b7c27663af0d473bb9ab56ea9b4ee243478852ecc422831c03ccd5"
+        },
+        "Alert": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Alert",
+            "version": "0.0.1",
+            "hash": "8f7e93f771d9675991896436a127eda6c390e02e06c0637d6449a514d7b4f689"
+        },
+        "Progress": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Progress",
+            "version": "0.0.1",
+            "hash": "a563b3d6b2d3f9f4695190008686914148f6baef98e9dec875dc5503bc27eb50"
+        },
+        "Codeblock": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "Codeblock",
+            "version": "0.0.1",
+            "hash": "2e42f27dae8d213d7d824279912f14d300e608b88402d86dfec25cd026530e83"
+        }
+    },
+    "utils": {
+        "class": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "class",
+            "version": "0.0.1",
+            "hash": "8f0a707851d20b5dc353b5a34777423716ec7b3c0c7a684e763716d4320f1358"
+        },
+        "labelId": {
+            "remote": "Zyrenth/Quantum@main",
+            "id": "labelId",
+            "version": "0.0.1",
+            "hash": "b8033600e3153037f4827f9b72c7d08beef89f459fad663bc55543bbf983853f"
+        }
+    }
+}
