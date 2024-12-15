@@ -1,4 +1,4 @@
-import { randomBytes } from 'node:crypto';
+import { randomBytes } from 'crypto';
 
 export default class LabelId {
     private format = 'quantum:{{id}}:{{label}}';
