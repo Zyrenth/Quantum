@@ -71,6 +71,12 @@
                 "class": "0.0.1",
                 "labelId": "0.0.1"
             }
+        },
+        "KBD": {
+            "version": "0.0.1",
+            "utils": {
+                "class": "0.0.1"
+            }
         }
     },
     "utils": {
