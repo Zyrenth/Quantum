@@ -45,6 +45,12 @@
             "utils": {
                 "class": "0.0.1"
             }
+        },
+        "Card": {
+            "version": "0.0.1",
+            "utils": {
+                "class": "0.0.1"
+            }
         }
     },
     "utils": {
