@@ -103,12 +103,6 @@
                 "class": "0.0.1"
             }
         },
-        "ProgressLoader": {
-            "version": "0.0.1",
-            "utils": {
-                "class": "0.0.1"
-            }
-        },
         "Radio": {
             "version": "0.0.1",
             "utils": {
