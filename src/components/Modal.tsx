@@ -284,7 +284,7 @@ interface ModalProps extends Omit<BaseHTMLAttributes<HTMLDivElement>, 'size'>, P
 const modal = cva(
     [
         'absolute flex flex-col gap-2.5 shadow-lg z-[100] rounded-md transform transition-all ease-out duration-[150ms]',
-        'bg-white dark:bg-black border border-black/15 dark:border-white/15',
+        'bg-white text-black dark:bg-black dark:text-white border border-black/15 dark:border-white/15',
     ],
     {
         variants: {
