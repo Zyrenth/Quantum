@@ -319,7 +319,7 @@ const alertLink = cva([], {
         {
             variant: '{{color}}',
             tone: 'solid',
-            className: 'text-{{color}}-soft-light-text dark:text-{{color}}-soft-dark-text',
+            className: 'text-{{color}}-solid-light-text dark:text-{{color}}-solid-dark-text',
         },
         >> */
         /* <<
