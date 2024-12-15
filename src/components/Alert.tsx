@@ -108,7 +108,7 @@ const alert = cva(
                 secondary: 'border-l-4 border-l-black dark:border-l-white',
                 outline: 'border-l-4 border-l-black dark:border-l-white',
                 /* <<
-                {{color}}: 'border-l-4 border-l-{{color}} dark:border-l-{{color}}',
+                {{color}}: 'border-l-4 border-l-{{color}}-solid-light-bg dark:border-l-{{color}}-solid-dark-bg',
                 >> */
             },
         },
@@ -135,7 +135,7 @@ const alert = cva(
                 variant: '{{color}}',
                 appearance: 'glossy',
                 className: 'bg-gradient-to-b from-{{color}}-soft-light-bg/20 to-{{color}}-soft-light-bg/50 dark:from-{{color}}-soft-dark-bg/20 dark:to-{{color}}-soft-dark-bg/10 !bg-transparent',
-            }
+            },
             >> */
         ],
         defaultVariants: {
