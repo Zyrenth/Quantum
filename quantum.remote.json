@@ -114,6 +114,12 @@
             "utils": {
                 "class": "0.0.1"
             }
+        },
+        "Spinner": {
+            "version": "0.0.1",
+            "utils": {
+                "class": "0.0.1"
+            }
         }
     },
     "utils": {
