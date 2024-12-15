@@ -16,6 +16,7 @@ interface Remotes {
 
 export class Remote {
     private static readonly defaultConfig: RemoteConfig = {
+        $schema: 'https://raw.githubusercontent.com/Zyrenth/Quantum/refs/heads/main/remote.schema.json',
         $version: 1,
         enabled: true,
         name: 'Default Remote',

@@ -124,6 +124,11 @@ export interface Config {
  */
 export interface RemoteConfig {
     /**
+     * @description The schema of the configuration file.
+     */
+    $schema: string;
+
+    /**
      * @description The version of the configuration file. (Do not modify it manually.)
      */
     $version: number;
