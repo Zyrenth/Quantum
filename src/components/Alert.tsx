@@ -114,10 +114,59 @@ const alert = cva(
         },
         compoundVariants: [
             {
+                border: 'primary',
+                className: 'border-l-4 border-l-white dark:border-l-black',
+            },
+            {
+                border: 'secondary',
+                className: 'border-l-4 border-l-black dark:border-l-white',
+            },
+            {
+                border: 'outline',
+                className: 'border-l-4 border-l-black dark:border-l-white',
+            },
+            /* <<
+            {
+                border: '{{color}}',
+                tone: 'solid',
+                className:
+                    'border-l-4 border-l-{{color}}-solid-light-text dark:border-l-{{color}}-solid-dark-text',
+            },
+            >> */
+            /* <<
+            {
+                border: '{{color}}',
+                tone: 'soft',
+                className:
+                    'border-l-4 border-l-{{color}}-solid-light-bg dark:border-l-{{color}}-solid-dark-bg',
+            },
+            >> */
+
+            {
+                variant: 'primary',
+                appearance: 'normal',
+                tone: 'solid',
+                className: 'bg-black text-white dark:bg-white dark:text-black',
+            },
+            {
                 variant: 'primary',
                 appearance: 'glossy',
+                tone: 'solid',
                 className:
                     'bg-gradient-to-b from-black/75 to-black/100 dark:from-white/100 dark:to-white/75 !bg-transparent',
+            },
+            {
+                variant: 'primary',
+                appearance: 'normal',
+                tone: 'soft',
+                className: 'bg-black/30 text-black dark:bg-white/20 dark:text-white',
+            },
+            {
+                variant: 'primary',
+                appearance: 'glossy',
+                tone: 'soft',
+                className:
+                    'bg-gradient-to-b from-black/20 to-black/50 dark:from-white/20 dark:to-white/10 !bg-transparent text-black dark:text-white',
             },
             {
                 variant: 'secondary',
@@ -133,8 +182,37 @@ const alert = cva(
             /* <<
             {
                 variant: '{{color}}',
+                appearance: 'normal',
+                tone: 'soft',
+                className:
+                    'bg-{{color}}-soft-light-bg/30 text-{{color}}-soft-light-text dark:bg-{{color}}-soft-dark-bg/20 dark:text-{{color}}-soft-dark-text',
+            },
+            >> */
+            /* <<
+            {
+                variant: '{{color}}',
                 appearance: 'glossy',
-                className: 'bg-gradient-to-b from-{{color}}-soft-light-bg/20 to-{{color}}-soft-light-bg/50 dark:from-{{color}}-soft-dark-bg/20 dark:to-{{color}}-soft-dark-bg/10 !bg-transparent',
+                tone: 'soft',
+                className:
+                    'bg-gradient-to-b from-{{color}}-soft-light-bg/20 to-{{color}}-soft-light-bg/50 dark:from-{{color}}-soft-dark-bg/20 dark:to-{{color}}-soft-dark-bg/10 !bg-transparent',
+            },
+            >> */
+            /* <<
+            {
+                variant: '{{color}}',
+                appearance: 'normal',
+                tone: 'solid',
+                className:
+                    'bg-{{color}}-solid-light-bg text-{{color}}-solid-light-text dark:bg-{{color}}-solid-dark-bg dark:text-{{color}}-solid-dark-text',
+            },
+            >> */
+            /* <<
+            {
+                variant: '{{color}}',
+                appearance: 'glossy',
+                tone: 'solid',
+                className:
+                    'bg-gradient-to-b from-{{color}}-solid-light-bg/75 to-{{color}}-solid-light-bg/100 text-{{color}}-solid-light-text dark:from-{{color}}-solid-dark-bg/100 dark:to-{{color}}-solid-dark-bg/75 dark:text-{{color}}-solid-dark-text !bg-transparent',
             },
             >> */
         ],
@@ -200,6 +278,14 @@ const alertLink = cva([], {
             >> */
         },
         /**
+         * @description The tone of the alert link.
+         * @default 'solid'
+         */
+        tone: {
+            solid: '',
+            soft: '',
+        },
+        /**
          * @description The size of the alert link.
          * @default 'md'
          */
@@ -210,8 +296,43 @@ const alertLink = cva([], {
             xl: 'text-base',
         },
     },
+    compoundVariants: [
+        {
+            variant: 'primary',
+            tone: 'solid',
+            className: 'text-white dark:text-black',
+        },
+        {
+            variant: 'primary',
+            tone: 'soft',
+            className: 'text-black dark:text-white',
+        },
+        {
+            variant: 'secondary',
+            className: 'text-black dark:text-white',
+        },
+        {
+            variant: 'outline',
+            className: 'text-black dark:text-white',
+        },
+        /* <<
+        {
+            variant: '{{color}}',
+            tone: 'solid',
+            className: 'text-{{color}}-soft-light-text dark:text-{{color}}-soft-dark-text',
+        },
+        >> */
+        /* <<
+        {
+            variant: '{{color}}',
+            tone: 'soft',
+            className: 'text-{{color}}-soft-light-text dark:text-{{color}}-soft-dark-text',
+        },
+        >> */
+    ],
     defaultVariants: {
         variant: 'primary',
+        tone: 'solid',
         size: 'md',
     },
 });
@@ -245,7 +366,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
 
     const alertClass = alert({ variant, appearance, tone, rounding, border: showBorder ? variant : null });
     const alertIconClass = alertIcon({ size });
-    const alertLinkClass = alertLink({ variant, size });
+    const alertLinkClass = alertLink({ variant, tone, size });
     const alertOverlayClass = alertOverlay({ size });
 
     const linkButton = (
@@ -282,9 +403,11 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
             className={cn(alertClass, alertOverlayClass, className)}
             {...props}
         >
-            <div aria-hidden="true" className={cn(alertIconClass)}>
-                {icon}
-            </div>
+            {icon && (
+                <div aria-hidden="true" className={cn(alertIconClass)}>
+                    {icon}
+                </div>
+            )}
             <div className="flex flex-col w-full text-wrap">
                 {title && (
                     <div id={ids.get('title')} className="font-bold">
