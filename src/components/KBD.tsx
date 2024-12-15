@@ -1,7 +1,7 @@
 'use client';
 
 import { cva, VariantProps } from 'class-variance-authority';
-import React, { BaseHTMLAttributes } from 'react';
+import React, { BaseHTMLAttributes, useEffect } from 'react';
 
 import { cn } from '<{utils}>/class';
 
@@ -206,11 +206,17 @@ const KBD = React.forwardRef<HTMLDivElement, KBDProps>(function KBD(
     const ariaLabel = props['aria-label'] || 'Keyboard keys';
     delete props['aria-label'];
 
+    const [keyList, setKeyList] = React.useState<(keyof typeof ShortcutKeys)[]>([]);
+
+    useEffect(() => {
+        setKeyList(keys as (keyof typeof ShortcutKeys)[]);
+    }, [keys]);
+
     const kbdClass = kbd({ variant, appearance, size, rounding });
 
     return (
         <div ref={ref} aria-label={ariaLabel} className={cn(kbdClass, className)} {...props}>
-            {keys?.map?.((key) => ShortcutKeys[key as keyof typeof ShortcutKeys] ?? key).join(' ')}
+            {keyList?.map?.((key) => ShortcutKeys[key as keyof typeof ShortcutKeys] ?? key).join(' ')}
         </div>
     );
 });
