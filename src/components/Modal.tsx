@@ -1,6 +1,6 @@
 'use client';
 
-import { randomBytes } from 'node:crypto';
+import { randomBytes } from 'crypto';
 
 import { cva, VariantProps } from 'class-variance-authority';
 import React, {
