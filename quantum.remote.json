@@ -51,6 +51,12 @@
             "utils": {
                 "class": "0.0.1"
             }
+        },
+        "Checkbox": {
+            "version": "0.0.1",
+            "utils": {
+                "class": "0.0.1"
+            }
         }
     },
     "utils": {
