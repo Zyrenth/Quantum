@@ -120,6 +120,12 @@
             "utils": {
                 "class": "0.0.1"
             }
+        },
+        "Switch": {
+            "version": "0.0.1",
+            "utils": {
+                "class": "0.0.1"
+            }
         }
     },
     "utils": {
