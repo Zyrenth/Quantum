@@ -34,6 +34,12 @@
                 "class": "0.0.1"
             }
         },
+        "Breadcrumb": {
+            "version": "0.0.1",
+            "utils": {
+                "class": "0.0.1"
+            }
+        },
         "Button": {
             "version": "0.0.1",
             "utils": {
