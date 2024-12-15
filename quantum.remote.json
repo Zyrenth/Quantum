@@ -146,7 +146,7 @@
                 "class": "0.0.1"
             }
         },
-        "TextInput": {
+        "Toggle": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
