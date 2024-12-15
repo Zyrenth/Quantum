@@ -11,7 +11,7 @@ import validatePackage from 'validate-npm-package-name';
  * @returns The imports in the file.
  */
 export function parseImports(fileString: string): string[] {
-    const importRegex = /import\s.*?from\s['"](.*?)['"]/g;
+    const importRegex = /import\s.*?from\s['"](.*?)['"]/gs;
     const imports: string[] = [];
 
     let match;
