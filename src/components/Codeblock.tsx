@@ -3,6 +3,7 @@
 import { ArrowDownTrayIcon, ClipboardIcon } from '@heroicons/react/24/outline';
 import { cva, VariantProps } from 'class-variance-authority';
 import { Highlight, Prism, PrismTheme } from 'prism-react-renderer';
+import prismjs from 'prismjs';
 import React, { BaseHTMLAttributes, useEffect, useState } from 'react';
 
 import { cn } from '<{utils}>/class';
@@ -11,6 +12,7 @@ import LabelId from '<{utils}>/labelId';
 import Button from '<{components}>/Button';
 
 (typeof global !== 'undefined' ? global : window).Prism = Prism;
+prismjs; // is required to load the syntax highlighting.
 
 type Props = VariantProps<typeof codeblock>;
 interface CodeblockProps extends BaseHTMLAttributes<HTMLDivElement>, Props {
@@ -276,6 +278,7 @@ const codeblockTextarea = cva(['w-full items-center gap-2.5 bg-black/10 dark:bg-
  * @description A codeblock component.
  * @requires Button
  * @requires `prism-react-renderer` via NPM.
+ * @requires `prismjs` via NPM.
  * @requires `@heroicons/react` via NPM.
  */
 const Codeblock = React.forwardRef<HTMLDivElement, CodeblockProps>(function Codeblock(
