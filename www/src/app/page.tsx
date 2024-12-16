@@ -80,7 +80,7 @@ export default function Home() {
                                     </Button>
                                 </Link>
                             </div>
-                            <Subtext>Quantum Components and CLI are open-sourced under the MIT license.</Subtext>
+                            <Subtext>Quantum Components and CLI are in alpha, expect breaking changes.</Subtext>
                         </div>
                         <div className="flex-col w-full items-start gap-2.5 px-2.5 hidden sm:flex"></div>
                     </div>
