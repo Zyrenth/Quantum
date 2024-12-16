@@ -1,7 +1,10 @@
 <br>
 
 <p align="center">
-    <img width="300" src="./assets/logo.png" alt="Quantum Logo">
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="./assets/dark_logo.png">
+        <img src="./assets/light_logo.png" alt="Quantum Logo" width="300">
+    </picture>
 </p>
 
 <p align="center">
