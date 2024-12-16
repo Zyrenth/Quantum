@@ -19,14 +19,13 @@ import TextInput from '@/components/TextInput';
 import { P, Subtext } from '@/components/Typography';
 import { cn } from '@/utils/class';
 import { Space_Grotesk } from 'next/font/google';
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect } from 'react';
 
 const monoFont = Space_Grotesk({ subsets: ['latin'] });
 
 export default function Home() {
-    const [selectedTab, setSelectedTab] = useState('tab-4');
-    const [selected, setSelected] = useState(true);
-
     useEffect(() => {
         interface DisableInteraction {
             (element: HTMLElement): void;
@@ -54,7 +53,7 @@ export default function Home() {
             <div className="max-w-[1024px] w-full h-full min-h-[512px] mx-auto border-x-[0.5px] border-black/15 dark:border-white/15 relative flex flex-col gap-2.5 overflow-hidden">
                 <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full flex flex-col gap-2.5 p-2.5 z-[999]">
                     <div className="flex flex-row w-full items-center">
-                        <img src="/logo.png" alt="Quantum logo" className="w-20 h-20" />
+                        <Image src="/logo.png" alt="Quantum logo" className="w-20 h-20" width={80} height={80} />
                         <h1 className={cn('text-4xl font-bold text-center mr-2.5', monoFont.className)}>Quantum</h1>
                         <Badge variant={'danger'} tone={'soft'}>
                             Alpha
@@ -75,9 +74,11 @@ export default function Home() {
                                     showLineNumbers={false}
                                     className="w-full sm:w-auto"
                                 />
-                                <Button variant={'primary'} className="w-full sm:w-auto">
-                                    View on GitHub
-                                </Button>
+                                <Link href="/" className="contents">
+                                    <Button variant={'primary'} className="w-full sm:w-auto">
+                                        View on GitHub
+                                    </Button>
+                                </Link>
                             </div>
                             <Subtext>Quantum Components and CLI are open-sourced under the MIT license.</Subtext>
                         </div>
@@ -97,7 +98,7 @@ export default function Home() {
                         <Progress value={3} />
                     </div>
                     <div className="flex flex-row gap-2.5 justify-center items-center">
-                        <Alert variant={'danger'} tone={'soft'} description="Please star Quantum on GitHub." />
+                        <Alert variant={'danger'} tone={'soft'} description="Don't forget to star Quantum on GitHub!" />
                     </div>
                     <div className="flex flex-row gap-2.5 justify-center items-center">
                         <Breadcrumb>
@@ -181,9 +182,9 @@ export default function Home() {
                         </Button>
                     </div>
                     <div className="flex flex-row gap-2.5 justify-center items-center">
-                        <TextInput placeholder={'Placeholder'} />
-                        <TextInput placeholder={'Username'} value={'Hello world!'} />
-                        <TextInput placeholder={'Quantum'} value={'Star on Github'} />
+                        <TextInput placeholder={'Placeholder'} readOnly />
+                        <TextInput placeholder={'Username'} defaultValue={'Hello world!'} readOnly />
+                        <TextInput placeholder={'Quantum'} defaultValue={'Star on Github'} readOnly />
                     </div>
                     <div className="flex flex-row gap-2.5 justify-center items-center">
                         <Tab
@@ -191,16 +192,16 @@ export default function Home() {
                                 { id: 'tab-1', label: 'Tabs' },
                                 { id: 'tab-2', label: 'are' },
                                 { id: 'tab-4', label: 'cool.' },
-                                { id: 'tab-5', label: 'Try', disabled: true },
-                                { id: 'tab-6', label: 'them' },
-                                { id: 'tab-7', label: 'out' },
-                                { id: 'tab-8', label: 'by', disabled: true },
-                                { id: 'tab-9', label: 'clicking', disabled: true },
-                                { id: 'tab-10', label: 'on' },
-                                { id: 'tab-11', label: 'them.', disabled: true },
+                                { id: 'tab-5', label: 'This', disabled: true },
+                                { id: 'tab-6', label: 'is' },
+                                { id: 'tab-7', label: 'disabled', disabled: true },
+                                { id: 'tab-8', label: 'and', disabled: true },
+                                { id: 'tab-9', label: 'this' },
+                                { id: 'tab-10', label: 'is', disabled: true },
+                                { id: 'tab-11', label: 'not.' },
                             ]}
-                            activeTab={selectedTab}
-                            onTabChange={(tabId) => setSelectedTab(tabId)}
+                            activeTab={'tab-4'}
+                            onTabChange={() => null}
                         />
                     </div>
                     <div className="flex flex-row gap-2.5 justify-center items-center">
