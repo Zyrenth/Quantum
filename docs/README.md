@@ -1,6 +1,9 @@
-# Alpha Release Documentation
+# Documentation
 
-Welcome to the (currently small) documentation for Quantum Components and CLI. This documentation is a work in progress and will be updated as the project progresses.
+Welcome to the documentation for Quantum Components and CLI. This documentation is a work in progress and it might not have accurate information. It will be updated as the project progresses.
+
+> [!WARNING]  
+> The project is currently in alpha and things may change. Please be aware that the documentation may not always be up to date with the latest changes.
 
 ## Table of Contents
 

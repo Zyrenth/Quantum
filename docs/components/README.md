@@ -2,6 +2,9 @@
 
 This directory contains the documentation for the Quantum Components. The components are built for React and are currently tested with Next.js.
 
+> [!WARNING]  
+> The project is currently in alpha and things may change. The documentation is work in progress and may not be accurate.
+
 ## Table of Contents
 
 -   [🚨 Alert](./alert/README.md)

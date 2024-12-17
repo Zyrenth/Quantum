@@ -20,11 +20,11 @@ interface PopoutProps extends Omit<Omit<BaseHTMLAttributes<HTMLDivElement>, 'siz
      */
     wrapperClassName?: string;
     /**
-     * @description Whether the popout is toggleable. A.k.a. a popover.
+     * @description Whether the popout is toggleable. AKA. a popover.
      */
     isToggleable?: boolean;
     /**
-     * @description Whether the popout is hoverable. A.k.a. a tooltip.
+     * @description Whether the popout is hoverable. AKA. a tooltip.
      */
     isHoverable?: boolean;
 }

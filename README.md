@@ -28,6 +28,9 @@
     </a>
 </p>
 
+> [!WARNING]  
+> The project is currently in alpha and things may change rapidly, please report any issues you may find. Contributions are greatly appreciated.
+
 <h2>What is Quantum?</h2>
 
 Quantum is a collection of components with a CLI tool for building React applications faster by providing already exisitng components. They are built with React and are currently tested with Next.js. The CLI tool is used to manage the components for your React application.
