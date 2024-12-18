@@ -8,15 +8,6 @@ body:
           value: |
               Thanks for taking the time to suggest an improvement!
 
-    - type: input
-      id: title
-      attributes:
-          label: Suggestion Title
-          description: A brief title for your suggestion
-          placeholder: 'Suggestion title'
-      validations:
-          required: true
-
     - type: textarea
       id: description
       attributes:

@@ -8,15 +8,6 @@ body:
           value: |
               Thanks for taking the time to fill out this bug report!
 
-    - type: input
-      id: title
-      attributes:
-          label: Bug Title
-          description: A brief description of the bug
-          placeholder: 'Bug title'
-      validations:
-          required: true
-
     - type: textarea
       id: description
       attributes:
