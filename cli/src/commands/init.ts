@@ -153,7 +153,7 @@ class Init {
                 process.exit(1);
             }
 
-            const remotes = await Promise.all(['Zyrenth/Quantum@main', 'Zyrenth/Quantum@dev']
+            const remotes = await Promise.all(this.setup.remotes
                 .map(async url => {
                     const remoteConfig = await this.remote.getRemoteConfig(url, false, !this.debug);
 
