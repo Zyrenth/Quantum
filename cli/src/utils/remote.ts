@@ -192,7 +192,7 @@ export class Remote {
         const githubRegex = /^([^/]+)\/([^@]+)\s*@\s*(.+)$/;
         const urlRegex = /^(https?:\/\/)[^\s/$.?#].[^\s]*$/i;
         const domainPathRegex = /^[^\s/$.?#].[^\s]*$/i;
-        const localPathRegex = /^(\/|[a-zA-Z]:[\\/])/;
+        const localPathRegex = /^(?:[a-zA-Z]:[\\/]|[a-zA-Z]:\\|[\\/])/;
         const githubMatch = remote.match(githubRegex);
         const urlTest = urlRegex.test(remote);
         const domainPathTest = domainPathRegex.test(remote);
