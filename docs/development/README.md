@@ -1,9 +1,10 @@
 # Development Documentation
 
-This directory contains the documentation for developing your own remotes for the CLI.
+This directory contains the documentation for contributing to the development of the project or creating your own remotes.
 
 ## Table of Contents
 
--   None, yet.
+-   [Remote Development](./remote/README.md)
+-   [CLI Development](./cli/README.md)
 
 ### Back to [Documentation](../README.md).
