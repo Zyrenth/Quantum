@@ -206,7 +206,7 @@ const KBD = React.forwardRef<HTMLDivElement, KBDProps>(function KBD(
     const ariaLabel = props['aria-label'] || 'Keyboard keys';
     delete props['aria-label'];
 
-    const [keyList, setKeyList] = React.useState<(keyof typeof ShortcutKeys)[]>([]);
+    const [keyList, setKeyList] = React.useState<(keyof typeof ShortcutKeys)[]>(keys as (keyof typeof ShortcutKeys)[]);
 
     useEffect(() => {
         setKeyList(keys as (keyof typeof ShortcutKeys)[]);
