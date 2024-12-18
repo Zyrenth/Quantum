@@ -88,9 +88,9 @@ export default function Home() {
                 <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full bg-gradient-to-r from-white/100 from-[32%] to-white/0 dark:from-black/100 dark:to-black/0 z-50"></div>
                 <div
                     id="showcase"
-                    className="flex flex-col ml-auto h-full items-end justify-center gap-2.5 p-2.5 sm:opacity-100 opacity-0 transition-opacity duration-[250ms] select-none pointer-events-none"
+                    className="flex flex-col ml-auto h-full items-end justify-center *:my-auto p-2.5 sm:opacity-100 opacity-0 transition-opacity duration-[250ms] select-none pointer-events-none"
                 >
-                    <div className="flex flex-row gap-2.5 justify-center items-center">
+                    <div className="flex flex-row gap-2.5 justify-center items-center !mt-0">
                         <Progress value={42} />
                         <Progress value={12} />
                         <Progress value={75} />
@@ -220,7 +220,7 @@ export default function Home() {
                         <Checkbox checked={false} appearance={'glossy'} />
                         <Radio checked={true} />
                     </div>
-                    <div className="flex flex-row gap-2.5 justify-center items-center">
+                    <div className="flex flex-row gap-2.5 justify-center items-center !mb-0">
                         <AvatarGroup>
                             <Avatar src={'/full_logo.png'} alt="" fallback={'Q'} />
                             <Avatar
