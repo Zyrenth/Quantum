@@ -44,7 +44,7 @@
             "remote": "Zyrenth/Quantum@main",
             "id": "Typography",
             "version": "0.0.1",
-            "hash": "48f5b2e9a3ffb9a11e7834c7c04274d3449de79e4a7e8064075a71f99b28ed51"
+            "hash": "af4e92b6713a3a958d93346ead9fd8dbdb00bbdc923bdd738d3f9064409c10e7"
         },
         "Badge": {
             "remote": "Zyrenth/Quantum@main",
@@ -68,31 +68,31 @@
             "remote": "Zyrenth/Quantum@main",
             "id": "Popout",
             "version": "0.0.1",
-            "hash": "45399ca5deae4fe364ec9f56646651bedf94b1cda5f7a4eb9924ecaa48c1ac72"
+            "hash": "ace8785ddbca9e45908cc80d4c23ddbb161bc9c2b3d36f5e7276a97b89b2f96b"
         },
         "Select": {
             "remote": "Zyrenth/Quantum@main",
             "id": "Select",
             "version": "0.0.1",
-            "hash": "6025a64253de61dbd34f3145fedb257a507c3cc8ed426bc126d0c5fbcb45536e"
+            "hash": "70d42b41345608962e924203875fb6101ce436d041e957d2ebe423a5276121d3"
         },
         "Dropdown": {
             "remote": "Zyrenth/Quantum@main",
             "id": "Dropdown",
             "version": "0.0.1",
-            "hash": "1b13eb092cb5feab529369fa6687b322d77e2df7c473cbd4aab706f1f0305454"
+            "hash": "835f0400678e94dc6c824276de6a7faf3dc5e8307d45e24fb762188b90ada2e5"
         },
         "TextInput": {
             "remote": "Zyrenth/Quantum@main",
             "id": "TextInput",
             "version": "0.0.1",
-            "hash": "374a8f5969020205af994bf2f3b7bf13f7e4be02b8a87205c4269c4a7a6acf16"
+            "hash": "6d458604bf612fb057f2005e5033b2c280f9fe238dfeef86a4b5b616c48ee831"
         },
         "Slider": {
             "remote": "Zyrenth/Quantum@main",
             "id": "Slider",
             "version": "0.0.1",
-            "hash": "69ea93b124213e90f21d4603f1e1c6beea7d296ea6aa02a7c4f9f6bccc954676"
+            "hash": "316e0c355bc9b2ddb2ffd2203c2538fc160e5ec5fecced9105bd618511a8e4b6"
         },
         "Spinner": {
             "remote": "Zyrenth/Quantum@main",
@@ -104,43 +104,43 @@
             "remote": "Zyrenth/Quantum@main",
             "id": "Switch",
             "version": "0.0.1",
-            "hash": "a486d2a4e4b0a338836fbc9604853e3f95ca6137171b212b3c0e3c9fd38ac617"
+            "hash": "e47add93e7274d861843f4b4de020fcb0b21c05bb0b65c97975b51e3dfcaca24"
         },
         "Tab": {
             "remote": "Zyrenth/Quantum@main",
             "id": "Tab",
             "version": "0.0.1",
-            "hash": "f6b4c3e39326855951bccc7c523aec1f8d806d558b224604acbff0c79b114e32"
+            "hash": "48381094ee8878eeae9bfb25b9aaaf23cbe537c01e03f9b52ff2deea09f3cd44"
         },
         "Toggle": {
             "remote": "Zyrenth/Quantum@main",
             "id": "Toggle",
             "version": "0.0.1",
-            "hash": "96e62454aa783b06fba8317959a2ce99539e1165135ef85206db553edc10c99c"
+            "hash": "c98c5f0d2ef3dac7b148ba27e194dfdb9f95940fe9bd982be858217dbf9b4bef"
         },
         "Checkbox": {
             "remote": "Zyrenth/Quantum@main",
             "id": "Checkbox",
             "version": "0.0.1",
-            "hash": "4c22e65114712dd10f81c4a271a000e329881b0a869bd669a8ffe432cff18b7e"
+            "hash": "1fe07f32b8f79988691a6e899901db1584b624ee3b7d79370b3b30cb2a757c43"
         },
         "Radio": {
             "remote": "Zyrenth/Quantum@main",
             "id": "Radio",
             "version": "0.0.1",
-            "hash": "ebfccdd0726be79e442c3aa17c041d513c8477fbeb6c98e51a286dcce0bc275b"
+            "hash": "8a9bf48458375a8cf645a4ef28705e00526b57a8b7f2c4b1ae94a647aa7f73bc"
         },
         "AvatarGroup": {
             "remote": "Zyrenth/Quantum@main",
             "id": "AvatarGroup",
             "version": "0.0.1",
-            "hash": "6b6a0ceca6ea4981f983c8032ae8be50c97f8a149b265bc0f57949777927b6f8"
+            "hash": "a3b9e7896a899c345a2049966c8130cb2e6095e1bf008590d7c41b95dede7ee3"
         },
         "Breadcrumb": {
             "remote": "Zyrenth/Quantum@main",
             "id": "Breadcrumb",
             "version": "0.0.1",
-            "hash": "b5244ab5b7b7c27663af0d473bb9ab56ea9b4ee243478852ecc422831c03ccd5"
+            "hash": "2fe0864c77ae862dfff749fac5b8d40847d1150beea28e11d785eb2b4aeed980"
         },
         "Alert": {
             "remote": "Zyrenth/Quantum@main",
@@ -152,13 +152,13 @@
             "remote": "Zyrenth/Quantum@main",
             "id": "Progress",
             "version": "0.0.1",
-            "hash": "a563b3d6b2d3f9f4695190008686914148f6baef98e9dec875dc5503bc27eb50"
+            "hash": "04a6aa945ee1136cd3b81a7fc7017dafdcfc36c585cac6be304677d817ad7f75"
         },
         "Codeblock": {
             "remote": "Zyrenth/Quantum@main",
             "id": "Codeblock",
             "version": "0.0.1",
-            "hash": "2e42f27dae8d213d7d824279912f14d300e608b88402d86dfec25cd026530e83"
+            "hash": "4ae67cac3daccd989207221f5b96a5c5a73b218dfdb5e4cd4219b68b7269e63b"
         }
     },
     "utils": {

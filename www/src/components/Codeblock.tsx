@@ -3,7 +3,6 @@
 import { ArrowDownTrayIcon, ClipboardIcon } from '@heroicons/react/24/outline';
 import { cva, VariantProps } from 'class-variance-authority';
 import { Highlight, Prism, PrismTheme } from 'prism-react-renderer';
-import prismjs from 'prismjs';
 import React, { BaseHTMLAttributes, useEffect, useState } from 'react';
 
 import { cn } from '@/utils/class';
@@ -12,7 +11,12 @@ import LabelId from '@/utils/labelId';
 import Button from '@/components/Button';
 
 (typeof global !== 'undefined' ? global : window).Prism = Prism;
-prismjs; // is required to load the syntax highlighting.
+
+declare global {
+    interface Window {
+        _prismimports: [string, unknown][];
+    }
+}
 
 type Props = VariantProps<typeof codeblock>;
 interface CodeblockProps extends BaseHTMLAttributes<HTMLDivElement>, Props {
@@ -76,6 +80,13 @@ interface CodeblockProps extends BaseHTMLAttributes<HTMLDivElement>, Props {
      */
     removedLines?: number[];
 }
+
+type CodeTheme = PrismTheme & {
+    plain: {
+        color: string;
+        fontFamily: string;
+    };
+};
 
 /**
  * @description Experimental: Might return an unexpected output if the input code is not formatted correctly.
@@ -333,10 +344,8 @@ const Codeblock = React.forwardRef<HTMLDivElement, CodeblockProps>(
                 try {
                     if (!language) return;
 
-                    // @ts-ignore
                     if (!window._prismimports) window._prismimports = [];
 
-                    // @ts-ignore
                     if (window._prismimports.find((x) => x[0] === language)) {
                         setIsLanguageLoaded(true);
                         return;
@@ -345,7 +354,6 @@ const Codeblock = React.forwardRef<HTMLDivElement, CodeblockProps>(
                     import('prismjs/components/prism-' + language).then(
                         (module) => {
                             setIsLanguageLoaded(true);
-                            // @ts-ignore
                             window._prismimports.push([language, module]);
                         },
                     );
@@ -358,7 +366,7 @@ const Codeblock = React.forwardRef<HTMLDivElement, CodeblockProps>(
         let code = Array.isArray(content) ? content.join('\n') : content;
         code = fixCodeIndentation ? stripIndent(code) : code;
 
-        const highlightedDark = {
+        const highlightedDark: CodeTheme = {
             plain: {
                 color: '#ffffff',
                 fontFamily: 'monospace',
@@ -442,7 +450,7 @@ const Codeblock = React.forwardRef<HTMLDivElement, CodeblockProps>(
             ],
         };
 
-        const highlightedLight = {
+        const highlightedLight: CodeTheme = {
             plain: {
                 color: '#000000',
                 fontFamily: 'monospace',
@@ -527,18 +535,17 @@ const Codeblock = React.forwardRef<HTMLDivElement, CodeblockProps>(
         };
 
         const themes: {
-            highlighted: { dark: PrismTheme; light: PrismTheme };
-            unhighlighted: { dark: PrismTheme; light: PrismTheme };
+            highlighted: { dark: CodeTheme; light: CodeTheme };
+            unhighlighted: { dark: CodeTheme; light: CodeTheme };
         } = {
             highlighted: {
-                dark: highlightedDark as any,
-                light: highlightedLight as any,
+                dark: highlightedDark,
+                light: highlightedLight,
             },
             unhighlighted: {
                 dark: {
                     plain: {
                         color: '#ffffff',
-                        // @ts-ignore
                         fontFamily: 'monospace',
                     },
                     styles: [],
@@ -546,7 +553,6 @@ const Codeblock = React.forwardRef<HTMLDivElement, CodeblockProps>(
                 light: {
                     plain: {
                         color: '#000000',
-                        // @ts-ignore
                         fontFamily: 'monospace',
                     },
                     styles: [],
@@ -568,7 +574,7 @@ const Codeblock = React.forwardRef<HTMLDivElement, CodeblockProps>(
         const lineDiff = (lineNumber: number) => {
             const style: React.CSSProperties = { display: 'block' };
 
-            let highlighter = null;
+            let highlighter: string | null = null;
 
             if (highlightedLines.includes(lineNumber))
                 highlighter = highlightColors.highlighted;

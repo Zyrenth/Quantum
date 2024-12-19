@@ -288,7 +288,8 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(function Tab(
     const ariaLabel = props['aria-label'] || 'Tab';
     delete props['aria-label'];
 
-    const defaultRef = ref ?? React.useRef<HTMLDivElement>(null);
+    const customRef = React.useRef<HTMLDivElement>(null);
+    const defaultRef = ref ?? customRef;
 
     const [isMounted, setIsMounted] = useState(false);
     const [currentItemWidth, setCurrentItemWidth] = useState(0);
@@ -475,8 +476,7 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(function Tab(
                     <button
                         key={index}
                         ref={(node) => {
-                            // @ts-ignore
-                            itemRef.node = node;
+                            if (itemRef) itemRef.node = node;
 
                             if (index !== 0) return;
 

@@ -68,7 +68,7 @@ const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
             : content;
         const firstProps = (
             React.isValidElement(content[0]) ? content[0].props : {}
-        ) as any;
+        ) as React.ComponentProps<typeof Avatar>;
 
         const avatarGroupClass = avatarGroup({ orientation });
 

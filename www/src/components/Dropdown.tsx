@@ -671,7 +671,8 @@ const DropdownElement = React.forwardRef<HTMLDivElement, DropdownProps>(
         delete props['aria-label'];
 
         // Refs
-        const defaultRef = ref ?? React.useRef<HTMLDivElement>(null);
+        const customRef = React.useRef<HTMLDivElement>(null);
+        const defaultRef = ref ?? customRef;
         const popupRef = React.useRef<HTMLDivElement>(null);
         const itemsRef = React.useRef<HTMLDivElement>(null);
         const searchRef = React.useRef<HTMLInputElement>(null);
@@ -772,7 +773,7 @@ const DropdownElement = React.forwardRef<HTMLDivElement, DropdownProps>(
                     const focusable = firstChild?.querySelector(
                         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
                     ) as HTMLElement;
-                    focusable ? focusable?.focus() : firstChild?.focus();
+                    (focusable || firstChild)?.focus();
                 }
 
                 setIsDebouncing(true);
@@ -1073,7 +1074,7 @@ const DropdownElement = React.forwardRef<HTMLDivElement, DropdownProps>(
                 lastKeyList.current = itemList;
 
                 for (const item of itemList)
-                    item.type === 'item' && item.action?.();
+                    if (item.type === 'item') item.action?.();
 
                 if (!stayOpen) closeDropdown(true);
 
@@ -1351,7 +1352,9 @@ const DropdownElement = React.forwardRef<HTMLDivElement, DropdownProps>(
                 onClick={handleClick}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                onTouchStart={handleClick as any}
+                onTouchStart={
+                    handleClick as unknown as React.TouchEventHandler<HTMLDivElement>
+                }
                 aria-haspopup="menu"
                 className={cn('relative', wrapperClassName)}>
                 {children}

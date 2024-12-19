@@ -27,11 +27,11 @@ interface PopoutProps
      */
     wrapperClassName?: string;
     /**
-     * @description Whether the popout is toggleable. A.k.a. a popover.
+     * @description Whether the popout is toggleable. AKA. a popover.
      */
     isToggleable?: boolean;
     /**
-     * @description Whether the popout is hoverable. A.k.a. a tooltip.
+     * @description Whether the popout is hoverable. AKA. a tooltip.
      */
     isHoverable?: boolean;
 }
@@ -263,7 +263,8 @@ const Popout = React.forwardRef<HTMLDivElement, PopoutProps>(function Popout(
         props['aria-label'] || (isToggleable ? 'Popover' : 'Tooltip');
     delete props['aria-label'];
 
-    const defaultRef = ref ?? React.useRef<HTMLDivElement>(null);
+    const customRef = React.useRef<HTMLDivElement>(null);
+    const defaultRef = ref ?? customRef;
     const popupRef = React.useRef<HTMLDivElement>(null);
 
     const [timeoutId, setTimeoutId] = useState<number | null>(null);
@@ -307,7 +308,7 @@ const Popout = React.forwardRef<HTMLDivElement, PopoutProps>(function Popout(
             const focusable = lastChild?.querySelector(
                 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
             ) as HTMLElement;
-            focusable ? focusable?.focus() : lastChild?.focus();
+            (focusable || lastChild)?.focus();
         }
 
         setTimeoutId(+setTimeout(() => setVisible(false), 100));

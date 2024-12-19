@@ -102,7 +102,8 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
         const ariaLabel = props['aria-label'] || 'Text input';
         delete props['aria-label'];
 
-        const defaultRef = ref ?? React.useRef<HTMLInputElement>(null);
+        const customRef = React.useRef<HTMLInputElement>(null);
+        const defaultRef = ref ?? customRef;
         const wrapperRef = React.useRef<HTMLDivElement>(null);
 
         const textInputs = [
@@ -121,8 +122,11 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
         const handleWrapperClick = (
             event: React.PointerEvent<HTMLDivElement>,
         ) => {
-            if (wrapperRef.current === event.target) {
-                'current' in defaultRef && defaultRef?.current?.focus();
+            if (
+                wrapperRef.current === event.target &&
+                'current' in defaultRef
+            ) {
+                defaultRef?.current?.focus();
             }
         };
 

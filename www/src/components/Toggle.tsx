@@ -115,14 +115,15 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(function Toggle(
     delete props['aria-label'];
     delete props.type;
 
-    const defaultRef = ref ?? useRef<HTMLInputElement>(null);
+    const customRef = useRef<HTMLInputElement>(null);
+    const defaultRef = ref ?? customRef;
     const [isChecked, setIsChecked] = useState<boolean | undefined>(false);
 
     useEffect(() => {
         setIsChecked(checked);
     }, [checked]);
 
-    const handleToggleChange = (event: any) => {
+    const handleToggleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIsChecked(event.target.checked);
     };
 

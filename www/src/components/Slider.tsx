@@ -1,13 +1,7 @@
 'use client';
 
 import { cva, VariantProps } from 'class-variance-authority';
-import React, {
-    ChangeEvent,
-    InputHTMLAttributes,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { InputHTMLAttributes, useEffect, useRef, useState } from 'react';
 import { useMeasure } from 'react-use';
 
 import { cn } from '@/utils/class';
@@ -35,7 +29,7 @@ interface SliderProps
     /**
      * @description Fires when the slider value changes after timeout.
      */
-    onUpdate?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onUpdate?: (event: React.FormEvent<HTMLInputElement>) => void;
 }
 
 const slider = cva([
@@ -242,12 +236,13 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(function Slider(
     delete props['aria-label'];
     delete props.type;
 
-    const defaultRef = ref ?? useRef<HTMLInputElement>(null);
+    const customRef = useRef<HTMLInputElement>(null);
+    const defaultRef = ref ?? customRef;
     const dotRef = useRef<HTMLDivElement>(null);
     const [sliderValue, setValue] = useState<number | undefined>(undefined);
-    const [sliderEvent, setEvent] = useState<ChangeEvent | undefined>(
-        undefined,
-    );
+    const [sliderEvent, setEvent] = useState<
+        React.FormEvent<HTMLInputElement> | undefined
+    >(undefined);
 
     const [bmRef, { width: bWidth }] = useMeasure();
     const [dmRef, { width: dWidth }] = useMeasure();
@@ -260,22 +255,16 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(function Slider(
      * @description Handles the input change event.
      * @param event The input change event.
      */
-    const handleInputChange = (event: any) => {
-        setValue(event.target.value);
+    const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
+        setValue(parseInt((event.target as HTMLInputElement).value));
         setEvent(event);
     };
 
     useEffect(() => {
-        let timeout: any;
+        let timeout: number;
 
         if (onUpdate && sliderEvent)
-            timeout = setTimeout(
-                () =>
-                    onUpdate(
-                        sliderEvent as unknown as React.ChangeEvent<HTMLInputElement>,
-                    ),
-                updateTimeout,
-            );
+            timeout = +setTimeout(() => onUpdate(sliderEvent), updateTimeout);
 
         return () => clearTimeout(timeout);
     }, [sliderValue, sliderEvent, onUpdate, updateTimeout]);
@@ -348,7 +337,7 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(function Slider(
             </div>
             <div
                 ref={(node) => {
-                    dmRef(node as Element); // @ts-ignore
+                    dmRef(node as Element);
                     dotRef.current = node;
                 }}
                 aria-hidden="true"

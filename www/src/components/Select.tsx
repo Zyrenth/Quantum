@@ -221,7 +221,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(function Select(
     const ariaLabel = props['aria-label'] || 'Select';
     delete props['aria-label'];
 
-    const defaultRef = ref ?? useRef<HTMLSelectElement>(null);
+    const customRef = useRef<HTMLSelectElement>(null);
+    const defaultRef = ref ?? customRef;
     const buttonRef = useRef<HTMLButtonElement>(null);
     const checkmarkStrokeRefs = useRef<
         Record<
@@ -395,7 +396,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(function Select(
     const selectWrapperClass = selectWrapper({ disabled, rounding });
     const iconClass = icon({ size });
 
-    let selectedAmount: any;
+    let selectedAmount: React.JSX.Element | React.JSX.Element[];
     if (selectedItems.length === 0)
         selectedAmount = (
             <Badge
@@ -486,7 +487,9 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(function Select(
         return (
             <Dropdown
                 id={ids.get('dropdown')}
-                content={content as any}
+                content={
+                    content as React.ComponentProps<typeof Dropdown>['content']
+                }
                 disableHover
                 fullWidth
                 stayOpen={allowMultiple}

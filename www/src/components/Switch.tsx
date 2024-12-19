@@ -239,7 +239,8 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
     delete props['aria-label'];
     delete props.type;
 
-    const defaultRef = ref ?? useRef<HTMLInputElement>(null);
+    const customRef = useRef<HTMLInputElement>(null);
+    const defaultRef = ref ?? customRef;
     const dotRef = useRef<HTMLDivElement>(null);
     const [isChecked, setIsChecked] = useState<boolean | undefined>(false);
     const [isMounted, setIsMounted] = useState(false);
@@ -300,7 +301,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(function Switch(
             />
             <div
                 ref={(node) => {
-                    dmRef(node as Element); // @ts-ignore
+                    dmRef(node as Element);
                     dotRef.current = node;
                 }}
                 aria-hidden="true"

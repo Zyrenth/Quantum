@@ -36,14 +36,12 @@ interface BreadcrumbItemProps
      * @description Sets the dropdown size for the collapsed links.
      * @default 'md'
      */
-    // @ts-ignore
-    dropdownSize?: typeof Dropdown.defaultProps.size;
+    dropdownSize?: React.ComponentProps<typeof Dropdown>['size'];
     /**
      * @description Sets the dropdown rounding for the collapsed links.
      * @default 'md'
      */
-    // @ts-ignore
-    dropdownRounding?: typeof Dropdown.defaultProps.rounding;
+    dropdownRounding?: React.ComponentProps<typeof Dropdown>['rounding'];
 }
 
 const breadcrumb = cva(
@@ -239,7 +237,7 @@ const BreadcrumbItem = React.forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
             action: () => {
                 window.location.href = entry.href;
             },
-        })) as any;
+        })) as React.ComponentProps<typeof Dropdown>['content'];
 
         if (links.length === 0)
             links.push({
