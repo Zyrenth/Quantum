@@ -12,6 +12,7 @@
     "license": "MIT",
     "description": "CLI for managing Quantum Web Components in your project.",
     "main": "dist/index.js",
+    "bin": "dist/index.js",
     "type": "module",
     "scripts": {
         "lint": "tsc",
