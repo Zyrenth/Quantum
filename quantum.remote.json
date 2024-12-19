@@ -14,178 +14,212 @@
             "utils": {
                 "class": "0.0.1",
                 "labelId": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Avatar": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "AvatarGroup": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Badge": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Breadcrumb": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Button": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "ButtonGroup": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Card": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Checkbox": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Codeblock": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1",
                 "labelId": "0.0.1"
-            }
+            },
+            "packages": ["prismjs"]
         },
         "Divider": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1",
                 "labelId": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Dropdown": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "KBD": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "List": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Modal": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1",
                 "labelId": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Popout": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Progress": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Radio": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Select": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1",
                 "labelId": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Slider": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Spinner": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Switch": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Tab": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1",
                 "labelId": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Table": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "TextField": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "TextInput": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Toggle": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         },
         "Typography": {
             "version": "0.0.1",
             "utils": {
                 "class": "0.0.1"
-            }
+            },
+            "packages": []
         }
     },
     "utils": {
-        "class": "0.0.1",
-        "labelId": "0.0.1"
+        "class": {
+            "version": "0.0.1",
+            "packages": []
+        },
+        "labelId": {
+            "version": "0.0.1",
+            "packages": []
+        }
     }
 }
