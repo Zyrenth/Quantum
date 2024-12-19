@@ -134,13 +134,29 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(function Br
     const breadcrumbClass = breadcrumb({ size });
     const breadcrumbSeparatorClass = breadcrumbSeparator({ size });
 
-    const sep = React.isValidElement(separator) ? (
-        React.cloneElement(separator as React.ReactElement, {
-            className: cn(separator?.props?.className, breadcrumbSeparatorClass),
-        })
-    ) : (
-        <span className={cn(breadcrumbSeparatorClass)}>{separator ?? '/'}</span>
-    );
+    let sep;
+
+    try {
+        sep = React.isValidElement(separator) ? (
+            React.cloneElement(
+                separator as React.ReactElement,
+                {
+                    className: cn(
+                        (separator?.props as React.HTMLAttributes<HTMLSpanElement>)?.className,
+                        breadcrumbSeparatorClass,
+                    ),
+                } as React.HTMLAttributes<HTMLSpanElement>,
+            )
+        ) : (
+            <span className={cn(breadcrumbSeparatorClass)}>{separator ?? '/'}</span>
+        );
+    } catch {
+        sep = React.isValidElement(separator) ? (
+            React.cloneElement(separator as React.ReactElement, {})
+        ) : (
+            <span className={cn(breadcrumbSeparatorClass)}>{separator ?? '/'}</span>
+        );
+    }
 
     return (
         <div ref={ref} aria-label={ariaLabel} className={cn(breadcrumbClass, className)} {...props}>
