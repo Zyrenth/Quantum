@@ -34,7 +34,7 @@ Make sure you are using Typescript with Tailwind CSS and you're using React Serv
 Create a new directory that is not inside the Next.js project directory. This directory will be the root of the remote. Inside this directory, run the following command:
 
 ```bash
-pnpx quantum-cli remote generate
+quantum-cli remote generate
 ```
 
 This command will create the necessary files and directories for the remote.
@@ -221,7 +221,7 @@ To test the remote before publishing it, you can use the CLI to add the remote t
 After you have added components and utilities to the remote and added the necessary placeholders, you can publish the remote to GitHub or host it on a HTTP server. To use the remote in a project, you need to add the remote to the `quantum.config.json` file in the root of the project. This can be easily done by using the CLI:
 
 ```bash
-pnpx quantum-cli remote add
+quantum-cli remote add
 ```
 
 This command will prompt you to enter the URL of the remote, for GitHub remotes you can enter the URL in the following format:
@@ -247,7 +247,7 @@ This is if the remote configuration file is located at `https://example.com/remo
 After adding the remote, you can install the components and utilities in the project. For that you can use the CLI:
 
 ```bash
-pnpx quantum-cli install
+quantum-cli install
 ```
 
 This will prompt you to select the remote you want to install the components and utilities from. After selecting the remote, you can select the components you want to install. The CLI will then install the components and utilities with the appropriate packages and will replace the placeholders with the dynamic values.

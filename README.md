@@ -47,6 +47,19 @@ Quantum is a collection of components with a CLI tool for building React applica
 -   ⚡ **Cache remote contents for faster access.**
 -   And much more!
 
+<h2>Temporarily CLI Installation</h2>
+
+Since the CLI is not yet published to npm, you can install it locally by first cloning the repository and then running the following commands:
+
+```bash
+cd cli
+pnpm install
+pnpm build
+pnpm link --global
+```
+
+If you have done this correctly, you should be able to run the `quantum-cli` command in your terminal.
+
 <h2>Documentation</h2>
 
 -   [📦 Components](./docs/components/README.md)
