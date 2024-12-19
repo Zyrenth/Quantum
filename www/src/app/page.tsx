@@ -19,7 +19,6 @@ import TextInput from '@/components/TextInput';
 import { P, Subtext } from '@/components/Typography';
 import { cn } from '@/utils/class';
 import { Space_Grotesk } from 'next/font/google';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
 
@@ -53,7 +52,7 @@ export default function Home() {
             <div className="max-w-[1024px] w-full h-full min-h-[512px] mx-auto border-x-[0.5px] border-black/15 dark:border-white/15 relative flex flex-col gap-2.5 overflow-hidden">
                 <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full flex flex-col gap-2.5 p-2.5 z-[999]">
                     <div className="flex flex-row w-full items-center">
-                        <Image src="/logo.png" alt="Quantum logo" className="w-20 h-20" width={80} height={80} />
+                        <img src="/logo.png" alt="Quantum logo" className="w-20 h-20" />
                         <h1 className={cn('text-4xl font-bold text-center mr-2.5', monoFont.className)}>Quantum</h1>
                         <Badge variant={'danger'} tone={'soft'}>
                             Alpha
