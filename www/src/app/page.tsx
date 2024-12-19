@@ -74,7 +74,7 @@ export default function Home() {
                                     showLineNumbers={false}
                                     className="w-full sm:w-auto"
                                 />
-                                <Link href="/" className="contents">
+                                <Link href="https://github.com/Zyrenth/Quantum" className="contents">
                                     <Button variant={'primary'} className="w-full sm:w-auto">
                                         View on GitHub
                                     </Button>
