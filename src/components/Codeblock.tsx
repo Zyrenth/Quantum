@@ -488,8 +488,8 @@ const Codeblock = React.forwardRef<HTMLDivElement, CodeblockProps>(function Code
         unhighlighted: { dark: CodeTheme; light: CodeTheme };
     } = {
         highlighted: {
-            dark: highlightedDark as any,
-            light: highlightedLight as any,
+            dark: highlightedDark,
+            light: highlightedLight,
         },
         unhighlighted: {
             dark: {

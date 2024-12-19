@@ -39,7 +39,6 @@ interface BreadcrumbItemProps extends LinkHTMLAttributes<HTMLAnchorElement>, Ite
      * @description Sets the dropdown rounding for the collapsed links.
      * @default 'md'
      */
-    // @ts-ignore
     dropdownRounding?: React.ComponentProps<typeof Dropdown>['rounding'];
 }
 

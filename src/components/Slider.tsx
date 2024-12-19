@@ -1,7 +1,7 @@
 'use client';
 
 import { cva, VariantProps } from 'class-variance-authority';
-import React, { ChangeEvent, InputHTMLAttributes, useEffect, useRef, useState } from 'react';
+import React, { InputHTMLAttributes, useEffect, useRef, useState } from 'react';
 import { useMeasure } from 'react-use';
 
 import { cn } from '<{utils}>/class';
