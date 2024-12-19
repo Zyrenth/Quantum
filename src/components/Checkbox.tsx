@@ -222,7 +222,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
     delete props['aria-label'];
     delete props.type;
 
-    const defaultRef = ref ?? useRef<HTMLInputElement>(null);
+    const customRef = useRef<HTMLInputElement>(null);
+    const defaultRef = ref ?? customRef;
     const [isChecked, setIsChecked] = useState<boolean | undefined>(false);
     const [isIndeterminate, setIsIndeterminate] = useState<boolean | null | undefined>(false);
     const [isMounted, setIsMounted] = useState(false);
@@ -242,7 +243,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
             defaultRef.current.indeterminate = isIndeterminate ?? false;
     }, [defaultRef, indeterminate, isIndeterminate]);
 
-    const handleCheckboxChange = (event: any) => {
+    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIsChecked(event.target.checked);
         setIsIndeterminate(false);
     };

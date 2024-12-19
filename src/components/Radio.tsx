@@ -198,14 +198,15 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
     delete props['aria-label'];
     delete props.type;
 
-    const defaultRef = ref ?? useRef<HTMLInputElement>(null);
+    const customRef = useRef<HTMLInputElement>(null);
+    const defaultRef = ref ?? customRef;
     const [isChecked, setIsChecked] = React.useState<boolean | undefined>(false);
 
     useEffect(() => {
         setIsChecked(checked);
     }, [checked]);
 
-    const handleRadioChange = (event: any) => {
+    const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIsChecked(event.target.checked);
     };
 

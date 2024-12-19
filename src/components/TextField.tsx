@@ -120,7 +120,8 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(function
     const ariaLabel = props['aria-label'] || 'Textarea';
     delete props['aria-label'];
 
-    const defaultRef = ref ?? React.useRef<HTMLTextAreaElement>(null);
+    const customRef = React.useRef<HTMLTextAreaElement>(null);
+    const defaultRef = ref ?? customRef;
     const wrapperRef = React.useRef<HTMLDivElement>(null);
     const [length, setLength] = React.useState(0);
 
@@ -140,8 +141,8 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(function
      * @param event The click event.
      */
     const handleWrapperClick = (event: React.PointerEvent<HTMLDivElement>) => {
-        if (wrapperRef.current === event.target) {
-            'current' in defaultRef && defaultRef?.current?.focus();
+        if (wrapperRef.current === event.target && 'current' in defaultRef) {
+            defaultRef?.current?.focus();
         }
     };
 
@@ -163,7 +164,7 @@ const TextField = React.forwardRef<HTMLTextAreaElement, TextFieldProps>(function
                 maxLength={maxLength}
                 disabled={disabled}
                 onChange={(event) => {
-                    !rows && handleOnChange(event);
+                    if (!rows) handleOnChange(event);
                     onChange?.(event);
                 }}
                 rows={rows}

@@ -5,9 +5,13 @@ import React, { BaseHTMLAttributes } from 'react';
 
 import { cn } from '<{utils}>/class';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface HProps extends BaseHTMLAttributes<HTMLHeadingElement> {}
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface PProps extends BaseHTMLAttributes<HTMLParagraphElement> {}
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface BlockquoteProps extends BaseHTMLAttributes<HTMLQuoteElement> {}
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface SubtextProps extends BaseHTMLAttributes<HTMLSpanElement> {}
 
 const heading1 = cva(['flex flex-row items-center gap-2.5', 'font-bold text-4xl']);

@@ -62,7 +62,9 @@ const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(function 
     const reachedMax = maxDisplayed > 0 && React.Children.count(children) > maxDisplayed;
     const content = React.Children.toArray(children);
     const displayedChildren = reachedMax ? content.slice(0, maxDisplayed) : content;
-    const firstProps = (React.isValidElement(content[0]) ? content[0].props : {}) as any;
+    const firstProps = (React.isValidElement(content[0]) ? content[0].props : {}) as React.ComponentProps<
+        typeof Avatar
+    >;
 
     const avatarGroupClass = avatarGroup({ orientation });
 

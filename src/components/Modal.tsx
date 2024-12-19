@@ -60,7 +60,7 @@ const ModalContext = createContext({
      * @example const modalId = pushModal(<Modal dismissible>Hello World!</Modal>);
      */
     pushModal: (modal: React.ReactElement<ModalProps>): string => {
-        modal;
+        String(modal);
         return '';
     },
     /**
@@ -69,7 +69,7 @@ const ModalContext = createContext({
      * @example popModal(modalId);
      */
     popModal: (id: string) => {
-        id;
+        String(id);
     },
 });
 
@@ -170,7 +170,7 @@ const ModalProvider = ({ children }: { children: React.ReactNode | React.ReactNo
             if (currentClosingModal) return;
 
             const currentOpenModal = modalStack.findLast((modal) => modal.isOpen);
-            currentOpenModal?.dismissable && popModal(currentOpenModal.id);
+            if (currentOpenModal?.dismissable) popModal(currentOpenModal.id);
         };
 
         document.addEventListener('keydown', handleKeyDown);
@@ -254,7 +254,7 @@ const ModalProvider = ({ children }: { children: React.ReactNode | React.ReactNo
                     if (currentClosingModal) return;
 
                     const currentOpenModal = modalStack.findLast((modal) => modal.isOpen);
-                    currentOpenModal?.dismissable && popModal(currentOpenModal.id);
+                    if (currentOpenModal?.dismissable) popModal(currentOpenModal.id);
                 }}
             >
                 {mapModals}

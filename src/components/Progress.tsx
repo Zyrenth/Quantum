@@ -203,7 +203,8 @@ const Progress = React.forwardRef<HTMLProgressElement, ProgressProps>(function P
     const ariaLabel = props['aria-label'] || 'Progress bar';
     delete props['aria-label'];
 
-    const defaultRef = ref ?? useRef<HTMLProgressElement>(null);
+    const customRef = useRef<HTMLProgressElement>(null);
+    const defaultRef = ref ?? customRef;
     const [bmRef, { width: bWidth }] = useMeasure();
     const percentage = (+(value ?? 0) / +(max ?? 100)) * 100;
 

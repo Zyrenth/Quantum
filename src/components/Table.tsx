@@ -154,7 +154,7 @@ const TableRow = React.forwardRef<HTMLTableRowElement, TableProps>(function Tabl
         React.Children.toArray(children).map((child) => {
             if (React.isValidElement(child) && child.props.children)
                 return React.cloneElement(child, {
-                    // @ts-ignore
+                    // @ts-expect-error - Some types are not correct and need to be fixed later.
                     role: variant === 'header' ? 'columnheader' : 'cell',
                 });
             else return child;
