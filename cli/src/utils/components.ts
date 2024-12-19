@@ -1428,7 +1428,11 @@ export class Components {
         componentContent.content = processed.content;
         componentContent.dependencies = processed.dependencies;
         componentContent.utils = processed.utils;
-        componentContent.packages = processed.packages;
+        componentContent.packages = [
+            ...processed.packages,
+            ...(rc.components[id].packages ?? []),
+        ];
+
         if (mode === ProcessMode.Uninstall) componentContent.version = this.config.components?.[componentContent.name]?.version ?? '0.0.0';
 
         this.contents.components[componentContent.name] = componentContent;
@@ -1511,7 +1515,7 @@ export class Components {
             return;
         }
 
-        if (!semver.valid(rc.utils[id])) {
+        if (!semver.valid(rc.utils[id].version)) {
             warnTask({
                 text: `Util ${id} has an invalid version. Skipping util...`,
             });
@@ -1528,7 +1532,7 @@ export class Components {
             dependencies: [],
             utils: [],
             packages: [],
-            version: rc.utils[id],
+            version: rc.utils[id].version,
             remote: remote,
             installed: false,
         };
@@ -1806,7 +1810,11 @@ export class Components {
         utilContent.content = processed.content;
         utilContent.dependencies = processed.dependencies;
         utilContent.utils = processed.utils;
-        utilContent.packages = processed.packages;
+        utilContent.packages = [
+            ...processed.packages,
+            ...(rc.utils[id].packages ?? []),
+        ];
+
         if (mode === ProcessMode.Uninstall) utilContent.version = this.config.utils?.[utilContent.name]?.version ?? '0.0.0';
 
         this.contents.utils[utilContent.name] = utilContent;

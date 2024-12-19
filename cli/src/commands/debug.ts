@@ -367,9 +367,9 @@ class Debug {
             data.utils[name] = {
                 id: util.id,
                 remote: util.remote,
-                uptodate: this.project.isUtilUpToDate(name, remote?.config?.utils?.[util?.id] ?? '0.0.0'),
+                uptodate: this.project.isUtilUpToDate(name, remote?.config?.utils?.[util?.id]?.version ?? '0.0.0'),
                 versions: {
-                    remote: remote?.config?.utils?.[util?.id] ?? '0.0.0',
+                    remote: remote?.config?.utils?.[util?.id]?.version ?? '0.0.0',
                     local: util.version,
                 },
                 dependencies,

@@ -59,16 +59,38 @@
                             "description": "The utility version required by the component.",
                             "examples": ["1.0.0"]
                         }
+                    },
+                    "packages": {
+                        "type": "array",
+                        "description": "Additional package dependencies required by the component.",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
-                "required": ["version", "utils"]
+                "required": ["version", "utils", "packages"]
             }
         },
         "utils": {
             "type": "object",
             "description": "Semantic versioning of the utilities in this remote.",
             "additionalProperties": {
-                "type": "string"
+                "type": "object",
+                "properties": {
+                    "version": {
+                        "type": "string",
+                        "description": "The semantic version of the utility.",
+                        "examples": ["1.0.0"]
+                    },
+                    "packages": {
+                        "type": "array",
+                        "description": "Additional package dependencies required by the utility.",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": ["version", "packages"]
             }
         }
     },

@@ -176,7 +176,11 @@ export interface RemoteConfig {
                  * @example "1.0.0"
                  */
                 [key: string]: string;
-            }
+            },
+            /**
+             * @description Additional package dependencies required by the component.
+             */
+            packages: string[];
         }
     };
 
@@ -184,6 +188,16 @@ export interface RemoteConfig {
      * @description Semantic versioning of the utilities in this remote.
      */
     utils: {
-        [key: string]: string;
+        [key: string]: {
+            /**
+             * @description The semantic version of the utility.
+             * @example "1.0.0"
+             */
+            version: string;
+            /**
+             * @description Additional package dependencies required by the utility.
+             */
+            packages: string[];
+        }
     };
 }
