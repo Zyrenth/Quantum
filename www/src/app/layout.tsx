@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     openGraph: {
         images: [
             {
-                url: '/full_logo.png',
-                width: 512,
-                height: 512,
-                alt: 'Quantum UI Logo',
+                url: '/banner.png',
+                width: 1280,
+                height: 640,
+                alt: 'Quantum UI Banner',
             },
         ],
     },
