@@ -37,9 +37,19 @@ program
 
 const commandsDir = join(import.meta.dirname, 'commands');
 
+function toFileUrl(filePath: string) {
+    if (process.platform === 'win32') {
+        const resolvedPath = join(filePath).replace(/\\/g, '/');
+        return `file:///${resolvedPath}`;
+    }
+
+    return filePath;
+}
+
 await Promise.all(readdirSync(commandsDir).map(async (file) => {
     if (!file.endsWith('.js')) return;
-    program.addCommand((await import(join(commandsDir, file))).default);
+    const fileUrl = toFileUrl(join(commandsDir, file));
+    program.addCommand((await import(fileUrl)).default);
 }));
 
 program.parse();
